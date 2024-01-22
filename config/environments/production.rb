@@ -95,6 +95,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { protocol: 'https', host: 'tranquil-lake-26819-cc4d9a316040.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port: 587,
@@ -102,7 +103,8 @@ Rails.application.configure do
     domain: 'gmail.com',
     user_name: ENV['GMAIL_USER'],
     password: ENV['GMAIL_PASSWORD'],
-    authentication: :plain,
+    authentication: :login,
+    openssl_verify_mode: 'none',
     enable_starttls_auto: true
   }
 end
