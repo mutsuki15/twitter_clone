@@ -34,9 +34,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_09_151156) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.string "phone_number", null: false
-    t.date "date_of_birth", null: false
+    t.string "name", default: "", null: false
+    t.string "phone_number", default: "", null: false
+    t.date "date_of_birth", default: "2000-01-01", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

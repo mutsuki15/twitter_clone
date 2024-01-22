@@ -1,15 +1,11 @@
-class Users::RegistrationsController < Devise::RegistrationsController
-  def new
-    super
-  end
+# frozen_string_literal: true
 
-  def create
-    super do |resource|
-      if resource.errors.any?
-        flash[:alert] = t('devise.registrations.invalid')
+module Users
+  class RegistrationsController < Devise::RegistrationsController
+    def create
+      super do |resource|
+        flash[:alert] = t('devise.registrations.invalid') if resource.errors.any?
       end
     end
   end
-  
-
 end

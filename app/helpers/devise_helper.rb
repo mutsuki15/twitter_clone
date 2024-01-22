@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 module DeviseHelper
+  FLASH_STYLE = {
+    'alert' => 'warning',
+    'notice' => 'success',
+    'error' => 'danger'
+  }.freeze
+
   def bootstrap_alert(key)
-    case key
-    when "alert"
-      "warning"
-    when "notice"
-      "success"
-    when "error"
-      "danger"
-    end
+    FLASH_STYLE[key]
   end
 end
