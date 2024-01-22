@@ -1,0 +1,8 @@
+p
+  | ようこそ 
+  = @email
+  | さん!
+p
+  | 以下のリンクからユーザの認証を行い、ユーザ登録を完了してください。
+p
+  = link_to 'ユーザ認証を実行する', confirmation_url(@resource, confirmation_token: @token)
