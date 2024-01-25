@@ -3,4 +3,8 @@
 class ApplicationMailer < ActionMailer::Base
   default from: 'from@example.com'
   layout 'mailer'
+
+  def headers_for(action, opts)
+    super.merge!(template_path: 'users/mailer')
+  end
 end
