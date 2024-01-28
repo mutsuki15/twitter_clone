@@ -1,19 +1,23 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_action :verify_authenticity_token, only: :github
+# frozen_string_literal: true
 
-  def github
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+module Users
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    skip_before_action :verify_authenticity_token, only: :github
 
-    if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: "Github") if is_navigational_format?
-    else
-      session["devise.github_data"] = request.env["omniauth.auth"].except(:extra)
-      redirect_to new_user_registration_url
+    def github
+      @user = User.from_omniauth(request.env['omniauth.auth'])
+
+      if @user.persisted?
+        sign_in_and_redirect @user, event: :authentication
+        set_flash_message(:notice, :success, kind: 'Github') if is_navigational_format?
+      else
+        session['devise.github_data'] = request.env['omniauth.auth'].except(:extra)
+        redirect_to new_user_registration_url
+      end
     end
-  end
 
-  def failure
-    redirect_to root_path
+    def failure
+      redirect_to root_path
+    end
   end
 end
