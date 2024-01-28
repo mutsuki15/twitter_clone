@@ -271,9 +271,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, Rails.application.credentials.github[:client_id], Rails.application.credentials.github[:client_secret], redirect_uri: 'https://salty-retreat-87840-8801ca86e9a0.herokuapp.com/users/auth/github/callback'
+  config.omniauth :github, Rails.application.credentials.github[:client_id], Rails.application.credentials.github[:client_secret], redirect_uri: 'https://secret-wildwood-51587-e5b33c699fa9.herokuapp.com/users/auth/github/callback'
   if Rails.env.production?
-    OmniAuth.config.full_host = 'https://salty-retreat-87840-8801ca86e9a0.herokuapp.com'
+    OmniAuth.config.full_host = 'https://secret-wildwood-51587-e5b33c699fa9.herokuapp.com'
   end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
