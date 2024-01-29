@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
-    confirmations: 'users/confirmations'
+    confirmations: 'users/confirmations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  devise_scope :user do
+    get 'users/auth/:provider/callback', to: 'users/omniauth_callbacks#github'
+  end
 
   root to: 'tweets#index'
   resources :tweets

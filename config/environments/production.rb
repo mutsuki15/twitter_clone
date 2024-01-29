@@ -95,7 +95,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { protocol: 'https',
-                                               host: 'tranquil-lake-26819-cc4d9a316040.herokuapp.com' }
+                                               host: 'rocky-castle-57617-142cbdb14382.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -108,4 +108,7 @@ Rails.application.configure do
     openssl_verify_mode: 'none',
     enable_starttls_auto: true
   }
+
+  config.github_client_id = ENV['GITHUB_CLIENT_ID']
+  config.github_client_secret = ENV['GITHUB_CLIENT_SECRET']
 end
