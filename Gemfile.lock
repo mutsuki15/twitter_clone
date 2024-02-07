@@ -76,8 +76,6 @@ GEM
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
-    autoprefixer-rails (10.4.16.0)
-      execjs (~> 2)
     aws-eventstream (1.3.0)
     aws-partitions (1.887.0)
     aws-sdk-core (3.191.0)
@@ -99,9 +97,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
-    bootstrap (5.3.2)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.11.8, < 3)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -131,7 +126,6 @@ GEM
     diff-lcs (1.5.0)
     erubi (1.12.0)
     erubis (2.7.0)
-    execjs (2.9.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -244,7 +238,6 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.3)
-    popper_js (2.11.8)
     public_suffix (5.0.3)
     puma (5.6.6)
       nio4r (~> 2.0)
@@ -417,7 +410,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   bootsnap
-  bootstrap
   capybara
   cssbundling-rails
   debug
