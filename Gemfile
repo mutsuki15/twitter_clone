@@ -32,6 +32,8 @@ gem 'cssbundling-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
+gem 'aws-sdk-s3', require: false
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -56,6 +58,8 @@ gem 'sassc-rails'
 # gem "image_processing", "~> 1.2"
 
 gem 'devise'
+gem 'kaminari'
+gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
