@@ -12,7 +12,7 @@ user1 = User.create(
   confirmed_at: Time.now
 )
 
-user1.avatar.attach(io: File.open('app/assets/images/chiikawa.PNG'), filename: 'chiikawa.PNG')
+user1.avatar.attach(io: File.open('app/assets/images/chiikawa.png'), filename: 'chiikawa.png')
 user1.save!
 
 user2 = User.create(
@@ -27,7 +27,7 @@ user2 = User.create(
   confirmed_at: Time.now
 )
 
-user2.avatar.attach(io: File.open('app/assets/images/hachiware.PNG'), filename: 'hachiware.PNG')
+user2.avatar.attach(io: File.open('app/assets/images/hachiware.png'), filename: 'hachiware.png')
 user2.save!
 
 user3 = User.create(
@@ -42,7 +42,7 @@ user3 = User.create(
   confirmed_at: Time.now
 )
 
-user3.avatar.attach(io: File.open('app/assets/images/usagi.PNG'), filename: 'usagi.PNG')
+user3.avatar.attach(io: File.open('app/assets/images/usagi.png'), filename: 'usagi.png')
 user3.save!
 
 user4 = User.create(
@@ -57,7 +57,7 @@ user4 = User.create(
   confirmed_at: Time.now
 )
 
-user4.avatar.attach(io: File.open('app/assets/images/momonga.PNG'), filename: 'momonga.PNG')
+user4.avatar.attach(io: File.open('app/assets/images/momonga.png'), filename: 'momonga.png')
 user4.save!
 
 user1.following_user << user2
