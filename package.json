@@ -10,8 +10,11 @@
     "esbuild": "^0.17.0",
     "sass": "^1.57.1"
   },
+
+
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
-    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+    "build": "esbuild app/javascript/**/*.js --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "sass ./app/assets/stylesheets/:./app/assets/builds/ --no-source-map --load-path=node_modules"
   }
+  
 }
