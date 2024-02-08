@@ -135,6 +135,7 @@ a.nav-link.active {
   color: #fff;
 }
 
+
 .side_user_icon img{
   border-radius: 50%;
 }
@@ -143,3 +144,18 @@ a.nav-link.active {
   padding-left: 0.5rem;
 
 }
+
+.container {
+  position: relative; /* .containerをposition: relativeに設定 */
+}
+
+.side_user_icon {
+  position: fixed;
+  bottom: 0;
+}
+
+.side_user_icon{
+  margin-top: auto;
+
+}
+

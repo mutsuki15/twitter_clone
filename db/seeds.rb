@@ -9,7 +9,7 @@ user1 = User.create(
   password: 'password',
   provider: '',
   uid: '75deb91f-470c-41ce-91a7-04ca5926c1ba',
-  confirmed_at: Time.now
+  confirmed_at: Time.zone.now
 )
 
 user1.avatar.attach(io: File.open('app/assets/images/chiikawa.png'), filename: 'chiikawa.png')
@@ -24,7 +24,7 @@ user2 = User.create(
   password: 'password',
   provider: '',
   uid: '75asd91f-470f-41df-91b7-04ca5478c1ba',
-  confirmed_at: Time.now
+  confirmed_at: Time.zone.now
 )
 
 user2.avatar.attach(io: File.open('app/assets/images/hachiware.png'), filename: 'hachiware.png')
@@ -39,7 +39,7 @@ user3 = User.create(
   password: 'password',
   provider: '',
   uid: '75ghj91f-470g-41fr-91g7-04ca9876c1ba',
-  confirmed_at: Time.now
+  confirmed_at: Time.zone.now
 )
 
 user3.avatar.attach(io: File.open('app/assets/images/usagi.png'), filename: 'usagi.png')
@@ -54,7 +54,7 @@ user4 = User.create(
   password: 'password',
   provider: '',
   uid: '75ghj56f-478g-65fr-67g7-89ca9436c1ba',
-  confirmed_at: Time.now
+  confirmed_at: Time.zone.now
 )
 
 user4.avatar.attach(io: File.open('app/assets/images/momonga.png'), filename: 'momonga.png')
