@@ -16,7 +16,9 @@ html[lang="ja"]
       nav.mt-4
         - if user_signed_in?
           h4.d-inline
-          = link_to "ログアウト", destroy_user_session_path,class: "p-2 btn btn-outline-dark", data: { turbo_method: :delete }
+          = button_to "ログアウト", destroy_user_session_path,class: "p-2 btn btn-outline-dark", data: { turbo_method: :delete }, method: :delete
+          
+
         - else
           = link_to "ログイン", new_user_session_path, class: "p-2 btn btn-outline-dark"
           = link_to "新規登録", new_user_registration_path, class: "p-2 mx-2 btn btn-dark"
