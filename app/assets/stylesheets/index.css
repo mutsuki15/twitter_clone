@@ -1,0 +1,161 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+.date_of_birth {
+  display: inline-block;
+  width: auto;
+}
+
+.side_menu {
+  font: Segoe UI;
+  font-weight: 400;
+  font-size: 20px;
+  color: #0f1419;
+}
+
+button.btn.btn-light.side_menu {
+  background-color: #fff;
+  border: #fff;
+  border-radius:30px;
+  
+}
+
+button.btn.btn-light.side_menu:hover {
+  background-color: lightgray;
+  border-radius:30px;
+}
+
+.tweet_button {
+  background-color:#1da1f2;
+  border: #1da1f2;
+  border-radius:30px;
+}
+
+.tweet_button:hover {
+  border: #1da1f2;
+  background-color: #1574ae;
+  border-radius:30px;
+}
+
+.main_before_login {
+  height:100vh;
+}
+
+.main_before_login_button {
+  border-radius:30px;
+
+}
+
+.col-8.main_before_login {
+  padding: 0;
+  
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: 0;
+
+}
+
+.nav-tabs .nav-link {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.nav {
+  --bs-nav-link-color: gray;
+  --bs-nav-link-hover-color: gray;
+
+  
+}
+
+.nav-link:hover {
+  background-color: #DDDDDD;
+
+}
+
+.nav:hover {
+  --bs-nav-link-color: gray;
+}
+
+.nav-tabs .nav-link.active {
+  color: black;
+  font-weight: bold;
+  border: #0f1419;
+   
+  
+}
+
+a.nav-link.active {
+  text-decoration:underline 3px solid #1da1f2;
+  text-underline-offset: 0.8rem;
+}
+
+.tweet_form{
+  width: 90%;
+
+}
+
+.tweet_form_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+}
+
+.tweet_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+}
+
+.tweet {
+  margin-left: 2.0rem;
+}
+
+.container.d-flex.flex-row.align-items-start.border-bottom {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.container.d-flex.flex-row.align-items-start.border-bottom img {
+  border-radius: 50%;
+}
+
+.container.d-flex.justify-content-between.border-bottom img {
+  border-radius: 50%;
+}
+
+.pagination .page-link {
+  color: #1da1f2;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #1da1f2;
+  border: #1da1f2;
+  color: #fff;
+}
+
+
+.side_user_icon img{
+  border-radius: 50%;
+}
+
+.side_user_name {
+  padding-left: 0.5rem;
+
+}
+
+.container {
+  position: relative; /* .containerをposition: relativeに設定 */
+}
+
+.side_user_icon {
+  position: fixed;
+  bottom: 0;
+}
+
+.side_user_icon{
+  margin-top: auto;
+
+}
+
