@@ -225,3 +225,60 @@ comment1 = Comment.new(
   content: 'ん!!'
 )
 comment1.save!
+
+favorite2 = Favorite.new(
+  user_id: 101,
+  tweet_id: 10
+)
+favorite2.save!
+
+retweet2 = Retweet.new(
+  user_id: 101,
+  tweet_id: 15
+)
+retweet2.save!
+
+comment2 = Comment.new(
+  user_id: 101,
+  tweet_id: 1,
+  content: '始めたの!?Twitter!?'
+)
+comment2.save!
+
+favorite3 = Favorite.new(
+  user_id: 102,
+  tweet_id: 4
+)
+favorite3.save!
+
+retweet3 = Retweet.new(
+  user_id: 102,
+  tweet_id: 14
+)
+retweet3.save!
+
+comment3 = Comment.new(
+  user_id: 102,
+  tweet_id: 1,
+  content: 'プルルルル!'
+)
+comment3.save!
+
+favorite4 = Favorite.new(
+  user_id: 103,
+  tweet_id: 9
+)
+favorite4.save!
+
+retweet4 = Retweet.new(
+  user_id: 103,
+  tweet_id: 7
+)
+retweet4.save!
+
+comment4 = Comment.new(
+  user_id: 103,
+  tweet_id: 4,
+  content: 'そのポシェットの中身よこしなッ'
+)
+comment4.save!
