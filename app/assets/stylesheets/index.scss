@@ -135,6 +135,7 @@ a.nav-link.active {
   color: #fff;
 }
 
+
 .side_user_icon img{
   border-radius: 50%;
 }
@@ -142,4 +143,18 @@ a.nav-link.active {
 .side_user_name {
   padding-left: 0.5rem;
 
+}
+
+.col-2.border-end  {
+  position: relative;
+  padding-bottom: 5rem;
+}
+
+.side_user_icon {
+  position: absolute;
+  bottom: 0;
+}
+
+button.btn.btn-light.side_menu.profile_button {
+  color: black;
 }
