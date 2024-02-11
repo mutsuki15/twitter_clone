@@ -5,14 +5,19 @@ user1 = User.create(
   email: 'test1@test.com',
   name: 'ちいかわ',
   phone_number: '09012341234',
-  date_of_birth: '2000-01-01',
+  date_of_birth: '2017-05-01',
   password: 'password',
   provider: '',
   uid: '75deb91f-470c-41ce-91a7-04ca5926c1ba',
+  custom_user_id: 'chiikawa',
+  profile: 'ちょっぴり泣き虫だけど優しい性格',
+  location: '二次元の森',
+  web_site: 'chiikawa.com',
   confirmed_at: Time.zone.now
 )
 
 user1.avatar.attach(io: File.open('app/assets/images/chiikawa.png'), filename: 'chiikawa.png')
+user1.header.attach(io: File.open('app/assets/images/chiikawa_header.png'), filename: 'chiikawa_header.png')
 user1.save!
 
 user2 = User.create(
@@ -20,10 +25,14 @@ user2 = User.create(
   email: 'test2@test.com',
   name: 'ハチワレ',
   phone_number: '09011112222',
-  date_of_birth: '2024-01-03',
+  date_of_birth: '2020-05-01',
   password: 'password',
   provider: '',
   uid: '75asd91f-470f-41df-91b7-04ca5478c1ba',
+  custom_user_id: 'hachiware',
+  profile: 'ちいかわのともだち。明るくてポジティブ。',
+  location: '二次元の森',
+  web_site: 'hachiware.com',
   confirmed_at: Time.zone.now
 )
 
@@ -35,10 +44,14 @@ user3 = User.create(
   email: 'test3@test.com',
   name: 'うさぎ',
   phone_number: '09023456543',
-  date_of_birth: '2024-08-03',
+  date_of_birth: '2019-01-22',
   password: 'password',
   provider: '',
   uid: '75ghj91f-470g-41fr-91g7-04ca9876c1ba',
+  custom_user_id: 'usagi',
+  profile: 'ちいかわのともだち。「ウラ」「ヤハ」など大声でよく叫ぶ。',
+  location: '二次元の森',
+  web_site: 'usagi.com',
   confirmed_at: Time.zone.now
 )
 
@@ -54,6 +67,10 @@ user4 = User.create(
   password: 'password',
   provider: '',
   uid: '75ghj56f-478g-65fr-67g7-89ca9436c1ba',
+  custom_user_id: 'momonga',
+  profile: '常にかわいこぶっている。色んなことをおねだりする。',
+  location: '二次元の森',
+  web_site: 'momonga.com',
   confirmed_at: Time.zone.now
 )
 
@@ -63,6 +80,12 @@ user4.save!
 user1.following_user << user2
 user1.following_user << user3
 user1.save!
+
+user2.following_user << user1
+user2.save!
+
+user3.following_user << user1
+user3.save!
 
 tweet1 = Tweet.new(
   user_id: '100',
@@ -183,3 +206,22 @@ tweet20 = Tweet.new(
   content: 'イーヤーヤダヤダ'
 )
 tweet20.save!
+
+favorite1 = Favorite.new(
+  user_id: 100,
+  tweet_id: 2
+)
+favorite1.save!
+
+retweet1 = Retweet.new(
+  user_id: 100,
+  tweet_id: 15
+)
+retweet1.save!
+
+comment1 = Comment.new(
+  user_id: 100,
+  tweet_id: 5,
+  content: 'ん!!'
+)
+comment1.save!

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_06_153019) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_11_075234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,11 +42,43 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_06_153019) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tweet_id", null: false
+    t.string "content", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_comments_on_tweet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tweet_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_favorites_on_comment_id"
+    t.index ["tweet_id"], name: "index_favorites_on_tweet_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "retweets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tweet_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_retweets_on_comment_id"
+    t.index ["tweet_id"], name: "index_retweets_on_tweet_id"
+    t.index ["user_id"], name: "index_retweets_on_user_id"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -82,6 +114,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_06_153019) do
     t.date "date_of_birth", default: "2000-01-01", null: false
     t.string "provider", default: "", null: false
     t.string "uid", default: "", null: false
+    t.string "custom_user_id", default: "ugjKN_Un29w", null: false
+    t.string "profile", default: "", null: false
+    t.string "location", default: "", null: false
+    t.string "web_site", default: "", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
@@ -91,5 +127,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_06_153019) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "comments"
+  add_foreign_key "favorites", "tweets"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "retweets", "comments"
+  add_foreign_key "retweets", "tweets"
+  add_foreign_key "retweets", "users"
   add_foreign_key "tweets", "users"
 end
