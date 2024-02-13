@@ -1,0 +1,49 @@
+doctype html
+html[lang="ja"]
+  head
+    meta[charset="utf-8"]
+    title
+      | Twitterクローン
+    body
+    - if user_signed_in?
+    .container.mt-3
+      .row.justify-content-center
+        .col-md-6
+          .text-center
+            svg.bi.bi-twitter-x[xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewbox="0 0 16 16"]
+              path[d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"]
+          h2.fw-bold
+            | プロフィールを編集
+          = form_with model: @user, local:true do |f| 
+            .form-group.mt-3
+              = f.label :"ユーザー名"
+              br
+              = f.text_field :name, class: 'form-control'
+            .form-group.mt-3
+              = f.label :custom_user_id, "ユーザーID"
+              br
+              = f.text_field :custom_user_id, class: 'form-control'
+            .form-group.mt-3
+              = f.label :"アカウント画像"
+              br
+              = f.file_field :avatar, class: 'form-control'
+            .form-group.mt-3
+              = f.label :"ヘッダー画像"
+              br
+              = f.file_field :header, class: 'form-control'
+            .form-group.mt-3
+              = f.label :"自己紹介"
+              br
+              = f.text_area :profile, class: 'form-control'
+            .form-group.mt-3
+              = f.label :"場所"
+              br
+              = f.text_field :location, class: 'form-control'
+            .form-group.mt-3
+              = f.label :"生年月日"
+              br
+              = f.date_select :date_of_birth, {use_month_numbers: true,start_year: 1930, end_year: Time.now.year}, class: "form-control date_of_birth"
+            .form-group.text-center.mt-3
+              = link_to "プロフィールページへ戻る", user_path(@user), class: "btn btn-outline-dark"
+            .form-group.text-center.mt-3
+              = f.submit '保存', class: 'btn btn-dark'
