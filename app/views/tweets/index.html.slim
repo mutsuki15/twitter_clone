@@ -7,31 +7,17 @@ html[lang="ja"]
     link href="/assets/index.css" rel="stylesheet"
 
   body
-    header.container.d-flex.align-items-center.justify-content-between
-      .d-flex.align-items-center.mt-4
-        svg.bi.bi-twitter-x[xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewbox="0 0 16 16" style="transform: translateY(-5px);"]
-          path[d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"]
-        h4
-          | Twitterクローン
-      nav.mt-4
-        - if user_signed_in?
-          h4.d-inline
-          = button_to "ログアウト", destroy_user_session_path,class: "p-2 btn btn-outline-dark", data: { turbo_method: :delete }, method: :delete
-          
-
-        - else
-          = link_to "ログイン", new_user_session_path, class: "p-2 btn btn-outline-dark"
-          = link_to "新規登録", new_user_registration_path, class: "p-2 mx-2 btn btn-dark"
-    
+    = render partial: 'shared/header'    
     .border-top.mt-3
       - if user_signed_in?
         .container
           .row
             .col-2.border-end
               .mt-3
-                button.btn.btn-light.side_menu
-                  i.bi.bi-house-door
-                  | &nbsp;&nbsp;ホーム
+                = button_to root_path, method: :get, class: "btn btn-light side_menu profile_button" do
+                  strong
+                    i.bi.bi-house-door-fill
+                    | &nbsp;&nbsp;ホーム
               .mt-3
                 button.btn.btn-light.side_menu
                   i.bi.bi-hash
@@ -49,9 +35,9 @@ html[lang="ja"]
                   i.bi.bi-bookmark
                   | &nbsp;&nbsp;ブックマーク
               .mt-3
-                button.btn.btn-light.side_menu
+                = button_to user_path(@user), method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-person
-                  | &nbsp;&nbsp;プロフィール
+                  |  &nbsp;&nbsp;プロフィール
               .mt-3
                 button.btn.btn-light.side_menu
                   i.bi.bi-three-dots
@@ -59,7 +45,7 @@ html[lang="ja"]
               .mt-3
                 button.btn.btn-primary.col-11.tweet_button
                   | ツイートする
-              .side_user_icon.position-fixed.bottom-0
+              .side_user_icon
                 .d-flex.align-items-center
                   - if current_user.avatar.attached?
                     = image_tag current_user.avatar, size: '50x50'
@@ -67,7 +53,7 @@ html[lang="ja"]
                     = image_tag 'default_user.PNG', size: '50x50'
                   .d-flex.flex-column.side_user_name
                     strong = current_user.name
-                    | ユーザーID
+                    = "@" + current_user.custom_user_id
                 
             .col-8.main_before_login.border-end
               .tabs
@@ -79,9 +65,11 @@ html[lang="ja"]
                 .container.d-flex.justify-content-between.border-bottom
                   .user-icon.mt-3
                     - if current_user.avatar.attached?
-                      = image_tag current_user.avatar, size: '50x50'
+                      = link_to user_path(@user) do
+                        = image_tag current_user.avatar, size: '50x50'
                     - else
-                      = image_tag 'default_user.PNG', size: '50x50'
+                      = link_to user_path(@user) do
+                        = image_tag 'default_user.PNG', size: '50x50'
                   .tweet_form.mt-3
                     textarea.form-control(placeholder="いまどうしてる？")
                     .mt-2.d-flex.justify-content-between
@@ -95,10 +83,12 @@ html[lang="ja"]
                   #section1.tab-pane.fade.show.active.mt-2
                     - @tweets.each do |tweet|
                       .container.d-flex.flex-row.align-items-start.border-bottom
-                        - if tweet.user.avatar.attached?
-                          = image_tag tweet.user.avatar, size: '50x50' 
+                        - if tweet.user.avatar.attached? 
+                          = link_to user_path(tweet.user.id) do
+                            = image_tag tweet.user.avatar, size: '50x50'
                         - else
-                          = image_tag 'default_user.PNG', size: '50x50' 
+                          = link_to user_path(@user) do
+                            = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = tweet.user.name
                           br
@@ -117,12 +107,6 @@ html[lang="ja"]
                           br
                           = tweet.content
                     = paginate @follower_tweets
-                
-            
-
-
-
-
 
       - else
         .container

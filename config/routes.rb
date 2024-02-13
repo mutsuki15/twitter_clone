@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  resources :users
 
   devise_scope :user do
     get 'users/auth/:provider/callback', to: 'users/omniauth_callbacks#github'
