@@ -63,7 +63,7 @@ html[lang="ja"]
                   li.nav-item
                     a.nav-link(data-toggle="tab" href="#section2") フォロー中
                 .container.d-flex.justify-content-between.border-bottom
-                  .user-icon.mt-3
+                  .user_icon.mt-3
                     - if current_user.avatar.attached?
                       = link_to user_path(@user) do
                         = image_tag current_user.avatar, size: '50x50'
@@ -82,7 +82,6 @@ html[lang="ja"]
                           = f.submit 'ツイートする', class: 'btn btn-primary tweet_button'
                           .mt-1
 
-               
                 .tab-content
                   #section1.tab-pane.fade.show.active.mt-2
                     - @tweets.each do |tweet|
@@ -99,17 +98,17 @@ html[lang="ja"]
                           br
                           = tweet.content
                           - if tweet.image.attached?
-                            - if tweet.image.length == 1
-                              .row
-                                .col-md-12
-                                  .d-flex.tweet_image.mt-2
-                                    = image_tag tweet.image.first, size: '600x400'
-                            - else
-                              .row
-                                - tweet.image.each_with_index do |image, index|
-                                  .col-md-6
+                              - if tweet.image.length == 1
+                                .row
+                                  .col-md-12
                                     .d-flex.tweet_image.mt-2
-                                      = image_tag image, size: '300x200'
+                                      = image_tag tweet.image.first, size: '600x400'
+                              - else
+                                .row
+                                  - tweet.image.each_with_index do |image, index|
+                                    .col-md-6
+                                      .d-flex.tweet_image.mt-2
+                                        = image_tag image, size: '300x200'
                     = paginate @tweets
 
                   #section2.tab-pane.fade

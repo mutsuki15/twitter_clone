@@ -122,9 +122,7 @@ a.nav-link.active {
   border-radius: 50%;
 }
 
-.container.d-flex.justify-content-between.border-bottom img {
-  border-radius: 50%;
-}
+
 
 .pagination .page-link {
   color: #1da1f2;
@@ -136,6 +134,10 @@ a.nav-link.active {
   color: #fff;
 }
 
+
+.user_icon img{
+  border-radius: 50%;
+}
 
 .side_user_icon img{
   border-radius: 50%;
@@ -168,4 +170,8 @@ span.custom-user-id {
   object-fit: cover;
   border-radius: 10%;
   margin-left: 3rem;
+}
+
+.avatar img {
+  border-radius: 50%;
 }
