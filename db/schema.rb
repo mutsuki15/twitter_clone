@@ -114,7 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_11_075234) do
     t.date "date_of_birth", default: "2000-01-01", null: false
     t.string "provider", default: "", null: false
     t.string "uid", default: "", null: false
-    t.string "custom_user_id", default: "2NkHpAkcLww", null: false
+    t.string "custom_user_id", default: "h-qtwviTOEA", null: false
     t.string "profile", default: "", null: false
     t.string "location", default: "", null: false
     t.string "web_site", default: "", null: false

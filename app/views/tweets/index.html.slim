@@ -71,39 +71,57 @@ html[lang="ja"]
                       = link_to user_path(@user) do
                         = image_tag 'default_user.PNG', size: '50x50'
                   .tweet_form.mt-3
-                    textarea.form-control(placeholder="いまどうしてる？")
-                    .mt-2.d-flex.justify-content-between
-                      button.btn.btn-primary.tweet_form_icon
-                        |  <i class="bi bi-image"></i>
-                      button.btn.btn-primary.tweet_button
-                        | ツイートする
-                    .mt-1
+                    = form_with model: Tweet.new, url: '/tweets', local:true, data: { turbo: false } do |f| 
+                      .form-group
+                        = f.text_area :content, class: 'form-control', placeholder: 'いまどうしてる？'
+                      .mt-2.d-flex.justify-content-between
+                        .btn-primary.tweet_form_icon = f.label :image do
+                          i.bi.bi-image[style="cursor: pointer"]
+                          = f.file_field :image, style: "display: none", multiple: true
+                        .form-group
+                          = f.submit 'ツイートする', class: 'btn btn-primary tweet_button'
+                          .mt-1
 
+               
                 .tab-content
                   #section1.tab-pane.fade.show.active.mt-2
                     - @tweets.each do |tweet|
                       .container.d-flex.flex-row.align-items-start.border-bottom
                         - if tweet.user.avatar.attached? 
                           = link_to user_path(tweet.user.id) do
-                            = image_tag tweet.user.avatar, size: '50x50'
+                            .avatar = image_tag tweet.user.avatar, size: '50x50'
                         - else
                           = link_to user_path(@user) do
-                            = image_tag 'default_user.PNG', size: '50x50'
+                            .avatar = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = tweet.user.name
+                          span.custom-user-id= " @" + tweet.user.custom_user_id
                           br
                           = tweet.content
+                          - if tweet.image.attached?
+                            - if tweet.image.length == 1
+                              .row
+                                .col-md-12
+                                  .d-flex.tweet_image.mt-2
+                                    = image_tag tweet.image.first, size: '600x400'
+                            - else
+                              .row
+                                - tweet.image.each_with_index do |image, index|
+                                  .col-md-6
+                                    .d-flex.tweet_image.mt-2
+                                      = image_tag image, size: '300x200'
                     = paginate @tweets
 
                   #section2.tab-pane.fade
                     - @follower_tweets.each do |tweet|
                       .container.d-flex.flex-row.align-items-start.border-bottom
                         - if tweet.user.avatar.attached?
-                          = image_tag tweet.user.avatar, size: '50x50' 
+                          .avatar = image_tag tweet.user.avatar, size: '50x50' 
                         - else
-                          = image_tag 'default_user.PNG', size: '50x50' 
+                          .avatar = image_tag 'default_user.PNG', size: '50x50' 
                         .tweet
                           strong = tweet.user.name
+                          span.custom-user-id= " @" + tweet.user.custom_user_id
                           br
                           = tweet.content
                     = paginate @follower_tweets

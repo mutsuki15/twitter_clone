@@ -100,6 +100,7 @@ a.nav-link.active {
   background-color: #fff;
   border: none;
   border-radius: 50%;
+  padding: 6px 12px;
 }
 
 .tweet_form_icon:hover {
@@ -117,7 +118,7 @@ a.nav-link.active {
   padding-bottom: 0.5rem;
 }
 
-.container.d-flex.flex-row.align-items-start.border-bottom img {
+.container.d-flex.flex-row.align-items-start.border-bottom.avatar {
   border-radius: 50%;
 }
 
@@ -157,4 +158,14 @@ a.nav-link.active {
 
 button.btn.btn-light.side_menu.profile_button {
   color: black;
+}
+
+span.custom-user-id {
+  color: #536471;
+}
+
+.tweet_image img {
+  object-fit: cover;
+  border-radius: 10%;
+  margin-left: 3rem;
 }

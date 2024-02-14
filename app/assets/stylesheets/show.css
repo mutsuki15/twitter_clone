@@ -221,3 +221,7 @@ button.btn.btn-light.side_menu.profile_button {
 .follower {
   margin-left: 2.0rem;
 }
+
+span.custom-user-id {
+  color: #536471;
+}
