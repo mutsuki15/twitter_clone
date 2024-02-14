@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :uid, uniqueness: { scope: :provider }
+  validates :custom_user_id, presence: true, format: { with: /\A\w+\z/ }
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
