@@ -100,6 +100,7 @@ a.nav-link.active {
   background-color: #fff;
   border: none;
   border-radius: 50%;
+  padding: 6px 12px;
 }
 
 .tweet_form_icon:hover {
@@ -117,13 +118,6 @@ a.nav-link.active {
   padding-bottom: 0.5rem;
 }
 
-.container.d-flex.flex-row.align-items-start.border-bottom img {
-  border-radius: 50%;
-}
-
-.container.d-flex.justify-content-between.border-bottom img {
-  border-radius: 50%;
-}
 
 .pagination .page-link {
   color: #1da1f2;
@@ -135,6 +129,10 @@ a.nav-link.active {
   color: #fff;
 }
 
+
+.user_icon img{
+  border-radius: 50%;
+}
 
 .side_user_icon img{
   border-radius: 50%;
@@ -157,4 +155,18 @@ a.nav-link.active {
 
 button.btn.btn-light.side_menu.profile_button {
   color: black;
+}
+
+span.custom-user-id {
+  color: #536471;
+}
+
+.tweet_image img {
+  object-fit: cover;
+  border-radius: 10%;
+  margin-left: 3rem;
+}
+
+.avatar img {
+  border-radius: 50%;
 }
