@@ -48,9 +48,9 @@ html[lang="ja"]
               .side_user_icon
                 .d-flex.align-items-center
                   - if current_user.avatar.attached?
-                    = image_tag current_user.avatar, size: '50x50'
+                    .avatar = image_tag current_user.avatar, size: '50x50'
                   - else
-                    = image_tag 'default_user.PNG', size: '50x50'
+                    .avatar = image_tag 'default_user.PNG', size: '50x50'
                   .d-flex.flex-column.side_user_name
                     strong = current_user.name
                     = "@" + current_user.custom_user_id
@@ -61,11 +61,11 @@ html[lang="ja"]
                 - else
                   = image_tag 'default_header.png'
               .container.d-flex.justify-content-between
-                .user-icon
+                .user_icon
                   - if @user.avatar.attached? 
-                    = image_tag @user.avatar, size: '120x120'
+                    .avatar = image_tag @user.avatar, size: '120x120'
                   - else
-                    = image_tag 'default_user.PNG', size: '120x120'
+                    .avatar = image_tag 'default_user.PNG', size: '120x120'
                 = link_to edit_user_path(@user), class: "btn btn-outline-secondary edit_profile_button mt-2" do
                   strong プロフィールを編集 
               .container.d-flex.flex-column
@@ -115,15 +115,27 @@ html[lang="ja"]
                       .container.d-flex.flex-row.align-items-start.border-bottom
                         - if tweet.user.avatar.attached? 
                           = link_to user_path(tweet.user.id) do
-                            = image_tag @user.avatar, size: '50x50'
+                            .avatar = image_tag @user.avatar, size: '50x50'
                         - else
-                          = image_tag 'default_user.PNG', size: '50x50' 
                           = link_to user_path(tweet.user.id) do
-                            = image_tag 'default_user.PNG', size: '50x50'
+                            .avatar = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = tweet.user.name
+                          span.custom-user-id= " @" + tweet.user.custom_user_id
                           br
                           = tweet.content
+                          - if tweet.image.attached?
+                            - if tweet.image.length == 1
+                              .row
+                                .col-md-12
+                                  .d-flex.tweet_image.mt-2
+                                    = image_tag tweet.image.first, size: '600x400'
+                            - else
+                              .row
+                                - tweet.image.each_with_index do |image, index|
+                                  .col-md-6
+                                    .d-flex.tweet_image.mt-2
+                                      = image_tag image, size: '300x200'
                   #section2.tab-pane.fade
                     - @favorites.each do |favorite|
                       .container.d-flex.flex-row.align-items-start.border-bottom
@@ -136,6 +148,7 @@ html[lang="ja"]
                             = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = favorite.tweet.user.name
+                          span.custom-user-id= " @" + favorite.tweet.user.custom_user_id
                           br
                           = favorite.tweet.content
                   #section3.tab-pane.fade
@@ -150,6 +163,7 @@ html[lang="ja"]
                             = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = retweet.tweet.user.name
+                          span.custom-user-id= " @" + retweet.tweet.user.custom_user_id
                           br
                           = retweet.tweet.content
                   #section4.tab-pane.fade
@@ -164,6 +178,7 @@ html[lang="ja"]
                             = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = comment.user.name
+                          span.custom-user-id= " @" + comment.user.custom_user_id
                           br
                           = comment.content
             

@@ -9,4 +9,26 @@ class TweetsController < ApplicationController
     following_user_id = @user.following_user.ids
     @follower_tweets = Tweet.where(user_id: following_user_id).order(created_at: 'DESC').page(params[:page]).per(5)
   end
+
+  def new
+    @tweet = Tweet.new
+  end
+
+  def create
+    @user = current_user
+    @tweet = @user.tweets.build(tweet_params)
+    if @tweet.save
+      redirect_to tweets_path, notice: 'ツイートを作成しました。'
+    elsif @tweet.content == ''
+      redirect_to tweets_path, alert: 'ツイートまたは画像がありません。'
+    else
+      redirect_to tweets_path, alert: 'ツイートの投稿に失敗しました。'
+    end
+  end
+
+  private
+
+  def tweet_params
+    params.require(:tweet).permit(:content, image: [])
+  end
 end
