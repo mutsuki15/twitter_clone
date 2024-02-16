@@ -114,16 +114,15 @@ html[lang="ja"]
                       .form-group
                         = f.submit '返信', class: 'btn btn-primary tweet_button'
                         .mt-1
-              .aaa
+              .comments
                 - @tweet.comments.each do |comment|
-                  .container.d-flex.flex-row.align-items-start.border-bottom
+                  .container.d-flex.flex-row.align-items-start.border-bottom.mt-2
                     - if comment.user.avatar.attached? 
                       = link_to user_path(comment.user.id) do
-                        = image_tag comment.user.avatar, size: '50x50'
+                        .user_icon = image_tag comment.user.avatar, size: '50x50'
                     - else
-                      = image_tag 'default_user.PNG', size: '50x50' 
                       = link_to user_path(comment.tweet.user.id) do
-                        = image_tag 'default_user.PNG', size: '50x50'
+                        .user_icon = image_tag 'default_user.PNG', size: '50x50'
                     .tweet
                       strong = comment.user.name
                       span.custom-user-id= " @" + comment.user.custom_user_id
@@ -141,6 +140,7 @@ html[lang="ja"]
                                       .col-md-6
                                         .d-flex.tweet_image.mt-2
                                           = image_tag image, size: '300x200'
+                      .mt-2
                   
             
       - else
