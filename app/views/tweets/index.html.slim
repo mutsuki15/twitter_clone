@@ -90,25 +90,26 @@ html[lang="ja"]
                           = link_to user_path(tweet.user.id) do
                             .avatar = image_tag tweet.user.avatar, size: '50x50'
                         - else
-                          = link_to user_path(@user) do
+                          = link_to user_path(tweet.user.id) do
                             .avatar = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = tweet.user.name
                           span.custom-user-id= " @" + tweet.user.custom_user_id
                           br
-                          = tweet.content
-                          - if tweet.image.attached?
-                              - if tweet.image.length == 1
-                                .row
-                                  .col-md-12
-                                    .d-flex.tweet_image.mt-2
-                                      = image_tag tweet.image.first, size: '600x400'
-                              - else
-                                .row
-                                  - tweet.image.each_with_index do |image, index|
-                                    .col-md-6
+                          = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark" do
+                            = tweet.content
+                            - if tweet.image.attached?
+                                - if tweet.image.length == 1
+                                  .row
+                                    .col-md-10
                                       .d-flex.tweet_image.mt-2
-                                        = image_tag image, size: '300x200'
+                                        = image_tag tweet.image.first, size: '600x400'
+                                - else
+                                  .row
+                                    - tweet.image.each do |image|
+                                      .col-md-5
+                                        .d-flex.tweet_image.mt-2
+                                          = image_tag image, size: '300x200'
                     = paginate @tweets
 
                   #section2.tab-pane.fade
@@ -122,7 +123,20 @@ html[lang="ja"]
                           strong = tweet.user.name
                           span.custom-user-id= " @" + tweet.user.custom_user_id
                           br
-                          = tweet.content
+                          = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark" do
+                            = tweet.content
+                            - if tweet.image.attached?
+                                - if tweet.image.length == 1
+                                  .row
+                                    .col-md-12
+                                      .d-flex.tweet_image.mt-2
+                                        = image_tag tweet.image.first, size: '600x400'
+                                - else
+                                  .row
+                                    - tweet.image.each do |image|
+                                      .col-md-6
+                                        .d-flex.tweet_image.mt-2
+                                          = image_tag image, size: '300x200'
                     = paginate @follower_tweets
 
       - else
