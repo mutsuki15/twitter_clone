@@ -123,27 +123,27 @@ html[lang="ja"]
                           strong = tweet.user.name
                           span.custom-user-id= " @" + tweet.user.custom_user_id
                           br
-                          = tweet.content
-                          - if tweet.image.attached?
-                            - if tweet.image.length == 1
-                              .row
-                                .col-md-12
-                                  .d-flex.tweet_image.mt-2
-                                    = image_tag tweet.image.first, size: '600x400'
-                            - else
-                              .row
-                                - tweet.image.each_with_index do |image, index|
-                                  .col-md-6
-                                    .d-flex.tweet_image.mt-2
-                                      = image_tag image, size: '300x200'
-                  #section2.tab-pane.fade
+                          = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark" do
+                            = tweet.content
+                            - if tweet.image.attached?
+                                - if tweet.image.length == 1
+                                  .row
+                                    .col-md-10
+                                      .d-flex.tweet_image.mt-2
+                                        = image_tag tweet.image.first, size: '600x400'
+                                - else
+                                  .row
+                                    - tweet.image.each do |image|
+                                      .col-md-5
+                                        .d-flex.tweet_image.mt-2
+                                          = image_tag image, size: '300x200'
+                  #section2.tab-pane.fade.mt-2
                     - @favorites.each do |favorite|
                       .container.d-flex.flex-row.align-items-start.border-bottom
                         - if favorite.tweet.user.avatar.attached? 
                           = link_to user_path(favorite.tweet.user.id) do
                             = image_tag favorite.tweet.user.avatar, size: '50x50'
                         - else
-                          = image_tag 'default_user.PNG', size: '50x50' 
                           = link_to user_path(favorite.tweet.user.id) do
                             = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
@@ -151,14 +151,13 @@ html[lang="ja"]
                           span.custom-user-id= " @" + favorite.tweet.user.custom_user_id
                           br
                           = favorite.tweet.content
-                  #section3.tab-pane.fade
+                  #section3.tab-pane.fade.mt-2
                     - @retweets.each do |retweet|
                       .container.d-flex.flex-row.align-items-start.border-bottom
                         - if retweet.tweet.user.avatar.attached? 
                           = link_to user_path(retweet.tweet.user.id) do
                             = image_tag retweet.tweet.user.avatar, size: '50x50'
                         - else
-                          = image_tag 'default_user.PNG', size: '50x50' 
                           = link_to user_path(retweet.tweet.user.id) do
                             = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
@@ -166,21 +165,32 @@ html[lang="ja"]
                           span.custom-user-id= " @" + retweet.tweet.user.custom_user_id
                           br
                           = retweet.tweet.content
-                  #section4.tab-pane.fade
+                  #section4.tab-pane.fade.mt-2
                     - @comments.each do |comment|
                       .container.d-flex.flex-row.align-items-start.border-bottom
-                        - if comment.tweet.user.avatar.attached? 
+                        - if comment.user.avatar.attached? 
                           = link_to user_path(comment.user.id) do
                             = image_tag comment.user.avatar, size: '50x50'
-                        - else
-                          = image_tag 'default_user.PNG', size: '50x50' 
-                          = link_to user_path(comment.tweet.user.id) do
+                        - else 
+                          = link_to user_path(comment.user.id) do
                             = image_tag 'default_user.PNG', size: '50x50'
                         .tweet
                           strong = comment.user.name
                           span.custom-user-id= " @" + comment.user.custom_user_id
                           br
                           = comment.content
+                          - if comment.image.attached?
+                            - if comment.image.length == 1
+                              .row
+                                .col-md-12
+                                  .d-flex.tweet_image.mt-2
+                                    = image_tag comment.image.first, size: '600x400'
+                            - else
+                              .row
+                                - comment.image.each_with_index do |image, index|
+                                  .col-md-6
+                                    .d-flex.tweet_image.mt-2
+                                      = image_tag image, size: '300x200'
             
       - else
         .container

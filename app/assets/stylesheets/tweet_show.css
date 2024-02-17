@@ -1,0 +1,277 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+.date_of_birth {
+  display: inline-block;
+  width: auto;
+}
+
+
+
+.side_menu {
+  font: Segoe UI;
+  font-weight: 400;
+  font-size: 20px;
+  color: #0f1419;
+}
+
+button.btn.btn-light.side_menu {
+  background-color: #fff;
+  border: #fff;
+  border-radius:30px;
+  
+}
+
+button.btn.btn-light.side_menu:hover {
+  background-color: lightgray;
+  border-radius:30px;
+}
+
+.tweet_button {
+  background-color:#1da1f2;
+  border: #1da1f2;
+  border-radius:30px;
+}
+
+.tweet_button:hover {
+  border: #1da1f2;
+  background-color: #1574ae;
+  border-radius:30px;
+}
+
+.main_before_login {
+  height:100vh;
+}
+
+.main_before_login_button {
+  border-radius:30px;
+
+}
+
+.col-8.main_before_login {
+  padding: 0;
+  
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: 0;
+
+}
+
+.nav-tabs .nav-link {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.nav {
+  --bs-nav-link-color: gray;
+  --bs-nav-link-hover-color: gray;
+
+  
+}
+
+.nav-link:hover {
+  background-color: #DDDDDD;
+
+}
+
+.nav:hover {
+  --bs-nav-link-color: gray;
+}
+
+.nav-tabs .nav-link.active {
+  color: black;
+  font-weight: bold;
+  border: #0f1419;
+   
+  
+}
+
+a.nav-link.active {
+  text-decoration:underline 3px solid #1da1f2;
+  text-underline-offset: 0.8rem;
+}
+
+.tweet_form{
+  width: 90%;
+
+}
+
+.tweet_form_icon {
+  
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  
+  
+}
+
+.tweet_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+
+
+
+.user_icon img {
+  border-radius: 50%;
+  
+}
+
+.pagination .page-link {
+  color: #1da1f2;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #1da1f2;
+  border: #1da1f2;
+  color: #fff;
+}
+
+
+.side_user_icon img{
+  border-radius: 50%;
+}
+
+.side_user_name {
+  padding-left: 0.5rem;
+
+}
+
+.col-2.border-end  {
+  position: relative;
+  padding-bottom: 5rem;
+}
+
+.side_user_icon {
+  position: absolute;
+  bottom: 0;
+}
+
+button.btn.btn-light.side_menu.profile_button {
+  color: black;
+}
+
+.header img {
+  height: 230px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+.edit_profile_button {
+  color: #000;
+  background-color:#fff;
+  border-radius:50px;
+  height: 40px;
+  
+}
+
+.edit_profile_button:hover {
+  color: #000;
+  background-color: rgb(229, 229, 229);
+  border-radius:50px;
+}
+
+.btn-outline-secondary {
+  --bs-btn-border-color: #dae5e9;
+  --bs-btn-hover-border-color: #dae5e9;
+}
+
+.user_name {
+  font: Segoe UI;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f1419;
+}
+
+.custom_user_id {
+  color: #536471;
+}
+
+.container.d-flex.flex-row.profile_detail {
+  color: #536471;
+  
+}
+
+.web_site {
+  margin-left: 1.0rem;
+}
+
+.date_of_birth {
+  margin-left: 1.0rem;
+}
+
+.follower {
+  margin-left: 2.0rem;
+}
+
+span.custom-user-id {
+  color: #536471;
+}
+
+.tweet {
+  margin-left: 1rem;
+}
+
+.tweet_image img {
+  object-fit: cover;
+  border-radius: 10%;
+  margin-left: 3rem;
+}
+
+.avatar img {
+  border-radius: 50%;
+}
+
+.retweet_icon {  
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.retweet_icon:hover {
+  color: #00BA7C;
+  background-color: #e8fcf1;
+  border-radius: 50%;
+}
+
+.favorite_icon {  
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.favorite_icon:hover {
+  color: #F81780;
+  background-color: #fddaeb;
+  border-radius: 50%;
+}
+
+
+.comment_form_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+}
+
+.comment_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
