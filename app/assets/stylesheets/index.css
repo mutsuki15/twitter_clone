@@ -110,7 +110,8 @@ a.nav-link.active {
 }
 
 .tweet {
-  margin-left: 2.0rem;
+  margin-left: 4.5rem;
+  
 }
 
 .container.d-flex.flex-row.align-items-start.border-bottom {
@@ -157,7 +158,7 @@ button.btn.btn-light.side_menu.profile_button {
   color: black;
 }
 
-span.custom-user-id {
+.custom-user-id {
   color: #536471;
 }
 
@@ -170,3 +171,110 @@ span.custom-user-id {
 .avatar img {
   border-radius: 50%;
 }
+
+.picture_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+  
+  
+}
+
+.picture_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+
+.tweet_form_icon {
+  color: #536471;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+  
+  
+}
+
+.tweet_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+
+.retweet_icon {  
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.retweet_icon:hover {
+  color: #00BA7C;
+  background-color: #e8fcf1;
+  border-radius: 50%;
+}
+
+.btn-light.favorite_icon {
+  --bs-btn-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+}
+
+.btn-light.favorite_icon:hover {
+  --bs-btn-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  
+}
+
+.favorite_icon {  
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-left: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.favorite_icon:hover {
+  color: #F81780;
+  background-color: #fddaeb;
+  border-radius: 50%;
+}
+
+.favorite_icon .count { 
+  margin-left: 0.5rem;
+}
+
+
+.comment_form_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+}
+
+.comment_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+

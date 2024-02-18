@@ -12,7 +12,7 @@ html[lang="ja"]
       - if user_signed_in?
         .container
           .row
-            .col-2.border-end
+            .col-2.border-end.p-0
               .mt-3
                 = button_to root_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-house-door
@@ -55,7 +55,7 @@ html[lang="ja"]
                     strong = current_user.name
                     = "@" + current_user.custom_user_id
 
-            .col-8.main_before_login.border-end
+            .col-8.main_before_login.border-end.p-0
               .container.d-flex.mt-2
                 .user_icon
                   - if @tweet.user.avatar.attached? 
@@ -73,25 +73,24 @@ html[lang="ja"]
                 = link_to tweet_path(@tweet.id), class: "text-decoration-none text-dark" do
                   = @tweet.content
                   - if @tweet.image.attached?
-                      - if @tweet.image.length == 1
-                        .row
-                          .col-md-12
+                    - if @tweet.image.length == 1
+                      .row
+                        .col-md-12
+                          .d-flex.tweet_image.mt-2
+                            = image_tag @tweet.image.first, size: '600x400'
+                    - else
+                      .row
+                        - @tweet.image.each do |image|
+                          .col-md-6
                             .d-flex.tweet_image.mt-2
-                              = image_tag @tweet.image.first, size: '600x400'
-                      - else
-                        .row
-                          - @tweet.image.each do |image|
-                            .col-md-6
-                              .d-flex.tweet_image.mt-2
-                                = image_tag image, size: '300x200'
+                              = image_tag image, size: '300x200'
               .container
                 .mt-2.border-top.d-flex.justify-content-between
                   button.btn-light.mt-2.tweet_form_icon
                     i.bi.bi-chat
                   button.btn-light.mt-2.retweet_icon
                     i.bi.bi-arrow-repeat
-                  button.btn-light.mt-2.favorite_icon
-                    i.bi.bi-heart
+                  = render partial: 'favorites/favorite_buttom', locals: { tweet: @tweet }
                   button.btn-light.mt-2.tweet_form_icon
                     i.bi.bi-bookmark
                   button.btn-light.mt-2.tweet_form_icon
@@ -118,7 +117,7 @@ html[lang="ja"]
                         .mt-1
               .comments
                 - @tweet.comments.each do |comment|
-                  .container.d-flex.flex-row.align-items-start.border-bottom.mt-2
+                  .container.d-flex.flex-row.align-items-start.mt-2
                     - if comment.user.avatar.attached? 
                       = link_to user_path(comment.user.id) do
                         .user_icon = image_tag comment.user.avatar, size: '50x50'
@@ -131,24 +130,34 @@ html[lang="ja"]
                       br
                       = comment.content
                       - if comment.image.attached?
-                                - if comment.image.length == 1
-                                  .row
-                                    .col-md-12
-                                      .d-flex.tweet_image.mt-2
-                                        = image_tag comment.image.first, size: '600x400'
-                                - else
-                                  .row
-                                    - comment.image.each do |image|
-                                      .col-md-6
-                                        .d-flex.tweet_image.mt-2
-                                          = image_tag image, size: '300x200'
+                        - if comment.image.length == 1
+                          .row
+                            .col-md-12
+                              .d-flex.tweet_image.mt-2
+                                = image_tag comment.image.first, size: '600x400'
+                        - else
+                          .row
+                            - comment.image.each do |image|
+                              .col-md-6
+                                .d-flex.tweet_image.mt-2
+                                  = image_tag image, size: '300x200'
+                  .container.mt-2.d-flex.justify-content-between    
+                    button.btn-light.mt-2.tweet_form_icon
+                      i.bi.bi-chat
+                    button.btn-light.mt-2.retweet_icon
+                      i.bi.bi-arrow-repeat
+                    = render partial: 'favorites/favorite_buttom', locals: { tweet: @tweet }
+                    button.btn-light.mt-2.tweet_form_icon
+                      i.bi.bi-bookmark
+                    button.btn-light.mt-2.tweet_form_icon
+                      i.bi.bi-upload
                       .mt-2
-                  
-            
+                  .border-bottom
+        
       - else
         .container
           .row
-            .col-3.border-end
+            .col-3.border-end.p-0
               .mt-3
                 button.btn.btn-light.side_menu
                   | <i class='bi bi-hash'></i>&nbsp;&nbsp;話題を検索

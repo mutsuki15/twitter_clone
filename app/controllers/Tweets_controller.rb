@@ -35,8 +35,6 @@ class TweetsController < ApplicationController
     @favorites = @user.favorites.order(created_at: 'DESC')
     @retweets = @user.retweets.order(created_at: 'DESC')
     @comments = @user.comments.order(created_at: 'DESC')
-    @following_user = @user.following_user.ids
-    @follower_user = @user.follower_user.ids
   end
 
   private
