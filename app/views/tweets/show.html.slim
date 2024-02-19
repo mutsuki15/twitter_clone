@@ -12,7 +12,7 @@ html[lang="ja"]
       - if user_signed_in?
         .container
           .row
-            .col-2.border-end.p-0
+            .col-2
               .mt-3
                 = button_to root_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-house-door
@@ -55,8 +55,8 @@ html[lang="ja"]
                     strong = current_user.name
                     = "@" + current_user.custom_user_id
 
-            .col-8.main_before_login.border-end.p-0
-              .container.d-flex.mt-2
+            .col-8.main_before_login
+              .container.d-flex.pt-2
                 .user_icon
                   - if @tweet.user.avatar.attached? 
                     = link_to user_path(@tweet.user.id) do
@@ -69,7 +69,7 @@ html[lang="ja"]
                   span.custom-user-id= " @" + @tweet.user.custom_user_id
                 button.btn-light.tweet_form_icon.ms-auto
                   i.bi.bi-three-dots.ms-auto
-              .tweet.mt-4
+              .tweet.pt-4.pb-2
                 = link_to tweet_path(@tweet.id), class: "text-decoration-none text-dark" do
                   = @tweet.content
                   - if @tweet.image.attached?
@@ -84,18 +84,17 @@ html[lang="ja"]
                           .col-md-6
                             .d-flex.tweet_image.mt-2
                               = image_tag image, size: '300x200'
-              .container
-                .mt-2.border-top.d-flex.justify-content-between
+              .container.form_icon
+                .tweet_detail_form_icon.pb-2.border-top.border-bottom.d-flex.justify-content-between
                   button.btn-light.mt-2.tweet_form_icon
                     i.bi.bi-chat
-                  button.btn-light.mt-2.retweet_icon
-                    i.bi.bi-arrow-repeat
+                  = render partial: 'retweets/retweet_button', locals: { tweet: @tweet }
                   = render partial: 'favorites/favorite_buttom', locals: { tweet: @tweet }
                   button.btn-light.mt-2.tweet_form_icon
                     i.bi.bi-bookmark
                   button.btn-light.mt-2.tweet_form_icon
                     i.bi.bi-upload
-                .mt-2.border-top
+                
               .container.d-flex.justify-content-between.border-bottom
                 .user_icon.mt-3
                   - if current_user.avatar.attached?
@@ -117,7 +116,7 @@ html[lang="ja"]
                         .mt-1
               .comments
                 - @tweet.comments.each do |comment|
-                  .container.d-flex.flex-row.align-items-start.mt-2
+                  .container.d-flex.flex-row.align-items-start.pt-2
                     - if comment.user.avatar.attached? 
                       = link_to user_path(comment.user.id) do
                         .user_icon = image_tag comment.user.avatar, size: '50x50'
@@ -141,11 +140,10 @@ html[lang="ja"]
                               .col-md-6
                                 .d-flex.tweet_image.mt-2
                                   = image_tag image, size: '300x200'
-                  .container.mt-2.d-flex.justify-content-between    
+                  .container.pt-2.d-flex.justify-content-between    
                     button.btn-light.mt-2.tweet_form_icon
                       i.bi.bi-chat
-                    button.btn-light.mt-2.retweet_icon
-                      i.bi.bi-arrow-repeat
+                    = render partial: 'retweets/retweet_button', locals: { tweet: @tweet }
                     = render partial: 'favorites/favorite_buttom', locals: { tweet: @tweet }
                     button.btn-light.mt-2.tweet_form_icon
                       i.bi.bi-bookmark

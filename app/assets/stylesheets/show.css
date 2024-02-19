@@ -48,6 +48,16 @@ button.btn.btn-light.side_menu:hover {
   padding: 0;
 }
 
+.header, .container.d-flex.justify-content-between.profile, .container.d-flex.flex-column, .container.d-flex.flex-row.profile_detail {
+  border-right: solid #dee2e6;
+  border-left: solid #dee2e6;
+}
+
+.tabs {
+  border-right: solid #dee2e6;
+  border-left: solid #dee2e6;
+}
+
 .nav-tabs {
   --bs-nav-tabs-border-width: 0;
 }
@@ -219,15 +229,18 @@ span.custom-user-id {
 }
 
 .retweet_icon {
+  color: #536471;  
   background-color: #fff;
   border: none;
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  display: flex;
+  align-items: center;
 }
 
 .retweet_icon:hover {
-  color: #00ba7c;
+  color: #00BA7C;
   background-color: #e8fcf1;
   border-radius: 50%;
 }
@@ -261,7 +274,8 @@ span.custom-user-id {
   border-radius: 50%;
 }
 
-.favorite_icon .count { 
+.count { 
+  color: #536471;
   margin-left: 1rem;
 }
 

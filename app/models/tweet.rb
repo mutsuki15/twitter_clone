@@ -12,4 +12,8 @@ class Tweet < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+
+  def retweeted_by?(user)
+    retweets.exists?(user_id: user.id)
+  end
 end

@@ -12,7 +12,7 @@ html[lang="ja"]
       - if user_signed_in?
         .container
           .row
-            .col-2.border-end
+            .col-2
               .mt-3
                 = button_to root_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-house-door
@@ -54,7 +54,7 @@ html[lang="ja"]
                   .d-flex.flex-column.side_user_name
                     strong = current_user.name
                     = "@" + current_user.custom_user_id
-            .col-8.main_before_login.border-end
+            .col-8.main_before_login
               .header
                 - if @user.header.attached? 
                   = image_tag @user.header
@@ -90,13 +90,14 @@ html[lang="ja"]
                   i.bi.bi-calendar4-week  
                   = @user.created_at.strftime(' %Y年%m月')
                   | からtwitterを利用しています
-              .container.d-flex.flex-row.profile_detail.mt-2.mb-2
+              .container.d-flex.flex-row.profile_detail.pt-2.pb-2
                 .follow
                   strong.text-dark = @following_user.count
                   | &nbsp;&nbsp;フォロー中
                 .follower
                   strong.text-dark = @follower_user.count
                   | &nbsp;&nbsp;フォロワー
+              
                   
               .tabs
                 ul.nav.nav-tabs.nav-justified.border-bottom
@@ -140,8 +141,7 @@ html[lang="ja"]
                       .container.mt-2.d-flex.justify-content-between.icon
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-chat
-                        button.btn-light.mt-2.retweet_icon
-                          i.bi.bi-arrow-repeat
+                        = render partial: 'retweets/retweet_button', locals: { tweet: tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-bookmark
@@ -177,8 +177,7 @@ html[lang="ja"]
                       .container.mt-2.d-flex.justify-content-between.icon
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-chat
-                        button.btn-light.mt-2.retweet_icon
-                          i.bi.bi-arrow-repeat
+                        = render partial: 'retweets/retweet_button', locals: { tweet: favorite.tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: favorite.tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-bookmark
@@ -214,8 +213,7 @@ html[lang="ja"]
                       .container.mt-2.d-flex.justify-content-between.icon
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-chat
-                        button.btn-light.mt-2.retweet_icon
-                          i.bi.bi-arrow-repeat
+                        = render partial: 'retweets/retweet_button', locals: { tweet: retweet.tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: retweet.tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-bookmark
@@ -251,8 +249,7 @@ html[lang="ja"]
                       .container.mt-2.d-flex.justify-content-between.icon
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-chat
-                        button.btn-light.mt-2.retweet_icon
-                          i.bi.bi-arrow-repeat
+                        = render partial: 'retweets/retweet_button', locals: { tweet: comment.tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: comment.tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-bookmark

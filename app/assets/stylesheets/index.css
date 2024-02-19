@@ -6,6 +6,11 @@
   width: auto;
 }
 
+.tabs {
+  border-right: solid #dee2e6;
+  border-left: solid #dee2e6;
+}
+
 .side_menu {
   font: Segoe UI;
   font-weight: 400;
@@ -212,12 +217,15 @@ button.btn.btn-light.side_menu.profile_button {
   
 }
 
-.retweet_icon {  
+.retweet_icon {
+  color: #536471;  
   background-color: #fff;
   border: none;
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  display: flex;
+  align-items: center;
 }
 
 .retweet_icon:hover {
@@ -240,6 +248,7 @@ button.btn.btn-light.side_menu.profile_button {
 }
 
 .favorite_icon {  
+  color: #536471;
   border: none;
   border-radius: 50%;
   width: 35px;
@@ -255,7 +264,8 @@ button.btn.btn-light.side_menu.profile_button {
   border-radius: 50%;
 }
 
-.favorite_icon .count { 
+.count { 
+  color: #536471;
   margin-left: 0.5rem;
 }
 

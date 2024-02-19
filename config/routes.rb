@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments, only: [:create]
     resource :favorites, only: %i[create destroy]
+    resource :retweets, only: %i[create destroy]
   end
 
   post '/tweets', to: 'tweets#create'
