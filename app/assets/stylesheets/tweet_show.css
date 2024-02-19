@@ -1,12 +1,10 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
 
 .date_of_birth {
   display: inline-block;
   width: auto;
 }
-
-
 
 .side_menu {
   font: Segoe UI;
@@ -18,44 +16,40 @@
 button.btn.btn-light.side_menu {
   background-color: #fff;
   border: #fff;
-  border-radius:30px;
-  
+  border-radius: 30px;
 }
 
 button.btn.btn-light.side_menu:hover {
   background-color: lightgray;
-  border-radius:30px;
+  border-radius: 30px;
 }
 
 .tweet_button {
-  background-color:#1da1f2;
+  background-color: #1da1f2;
   border: #1da1f2;
-  border-radius:30px;
+  border-radius: 30px;
 }
 
 .tweet_button:hover {
   border: #1da1f2;
   background-color: #1574ae;
-  border-radius:30px;
+  border-radius: 30px;
 }
 
 .main_before_login {
-  height:100vh;
+  height: 100vh;
 }
 
 .main_before_login_button {
-  border-radius:30px;
-
+  border-radius: 30px;
 }
 
 .col-8.main_before_login {
   padding: 0;
-  
 }
 
 .nav-tabs {
   --bs-nav-tabs-border-width: 0;
-
 }
 
 .nav-tabs .nav-link {
@@ -66,13 +60,10 @@ button.btn.btn-light.side_menu:hover {
 .nav {
   --bs-nav-link-color: gray;
   --bs-nav-link-hover-color: gray;
-
-  
 }
 
 .nav-link:hover {
-  background-color: #DDDDDD;
-
+  background-color: #dddddd;
 }
 
 .nav:hover {
@@ -83,43 +74,33 @@ button.btn.btn-light.side_menu:hover {
   color: black;
   font-weight: bold;
   border: #0f1419;
-   
-  
 }
 
 a.nav-link.active {
-  text-decoration:underline 3px solid #1da1f2;
+  text-decoration: underline 3px solid #1da1f2;
   text-underline-offset: 0.8rem;
 }
 
-.tweet_form{
+.tweet_form {
   width: 90%;
-
 }
 
 .tweet_form_icon {
-  
   background-color: #fff;
   border: none;
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  
-  
 }
 
 .tweet_form_icon:hover {
   color: #1da1f2;
-  background-color: #D7EEFF;
+  background-color: #d7eeff;
   border-radius: 50%;
-  
 }
-
-
 
 .user_icon img {
   border-radius: 50%;
-  
 }
 
 .pagination .page-link {
@@ -132,19 +113,12 @@ a.nav-link.active {
   color: #fff;
 }
 
-
-.side_user_icon img{
+.side_user_icon img {
   border-radius: 50%;
 }
 
 .side_user_name {
   padding-left: 0.5rem;
-
-}
-
-.col-2.border-end  {
-  position: relative;
-  padding-bottom: 5rem;
 }
 
 .side_user_icon {
@@ -162,20 +136,17 @@ button.btn.btn-light.side_menu.profile_button {
   object-fit: cover;
 }
 
-
-
 .edit_profile_button {
   color: #000;
-  background-color:#fff;
-  border-radius:50px;
+  background-color: #fff;
+  border-radius: 50px;
   height: 40px;
-  
 }
 
 .edit_profile_button:hover {
   color: #000;
   background-color: rgb(229, 229, 229);
-  border-radius:50px;
+  border-radius: 50px;
 }
 
 .btn-outline-secondary {
@@ -196,19 +167,18 @@ button.btn.btn-light.side_menu.profile_button {
 
 .container.d-flex.flex-row.profile_detail {
   color: #536471;
-  
 }
 
 .web_site {
-  margin-left: 1.0rem;
+  margin-left: 1rem;
 }
 
 .date_of_birth {
-  margin-left: 1.0rem;
+  margin-left: 1rem;
 }
 
 .follower {
-  margin-left: 2.0rem;
+  margin-left: 2rem;
 }
 
 span.custom-user-id {
@@ -229,7 +199,7 @@ span.custom-user-id {
   border-radius: 50%;
 }
 
-.retweet_icon {  
+.retweet_icon {
   background-color: #fff;
   border: none;
   border-radius: 50%;
@@ -238,17 +208,32 @@ span.custom-user-id {
 }
 
 .retweet_icon:hover {
-  color: #00BA7C;
+  color: #00ba7c;
   background-color: #e8fcf1;
   border-radius: 50%;
 }
 
+.btn-light.favorite_icon {
+  --bs-btn-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+}
+
+.btn-light.favorite_icon:hover {
+  --bs-btn-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  
+}
+
 .favorite_icon {  
-  background-color: #fff;
   border: none;
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  padding-left: 0.3rem;
+  display: flex;
+  align-items: center;
 }
 
 .favorite_icon:hover {
@@ -257,6 +242,9 @@ span.custom-user-id {
   border-radius: 50%;
 }
 
+.favorite_icon .count { 
+  margin-left: 0.5rem;
+}
 
 .comment_form_icon {
   color: #1da1f2;
@@ -271,7 +259,10 @@ span.custom-user-id {
 
 .comment_form_icon:hover {
   color: #1da1f2;
-  background-color: #D7EEFF;
+  background-color: #d7eeff;
   border-radius: 50%;
-  
+}
+
+.container.mt-2.d-flex.justify-content-between {
+  padding-left: 4rem;
 }

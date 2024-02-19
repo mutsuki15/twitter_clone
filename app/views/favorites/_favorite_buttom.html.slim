@@ -1,0 +1,10 @@
+- if tweet.favorited_by?(current_user)
+  .mt-2.d-flex.align-items-center
+    = button_to tweet_favorites_path(tweet), class: "btn btn-light favorite_icon", method: :delete do
+      i.bi.bi-heart-fill aria-hidden="true" style="color: #F81780"
+      .count #{tweet.favorites.count}
+- else
+  .mt-2.d-flex.align-items-center
+    = button_to tweet_favorites_path(tweet), class: "btn btn-light favorite_icon", method: :post do
+      i.bi.bi-heart aria-hidden="true"
+      .count #{tweet.favorites.count}
