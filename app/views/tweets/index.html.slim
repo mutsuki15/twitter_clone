@@ -12,7 +12,7 @@ html[lang="ja"]
       - if user_signed_in?
         .container
           .row
-            .col-2.border-end
+            .col-2
               .mt-3
                 = button_to root_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   strong
@@ -55,7 +55,7 @@ html[lang="ja"]
                     strong = current_user.name
                     = "@" + current_user.custom_user_id
                 
-            .col-8.main_before_login.border-end
+            .col-8.main_before_login
               .tabs
                 ul.nav.nav-tabs.nav-justified
                   li.nav-item
@@ -117,8 +117,7 @@ html[lang="ja"]
                           .container.mt-2.d-flex.justify-content-between
                             button.btn-light.mt-2.tweet_form_icon
                               i.bi.bi-chat
-                            button.btn-light.mt-2.retweet_icon
-                              i.bi.bi-arrow-repeat
+                            = render partial: 'retweets/retweet_button', locals: { tweet: tweet }
                             = render partial: 'favorites/favorite_buttom', locals: { tweet: tweet }
                             button.btn-light.mt-2.tweet_form_icon
                               i.bi.bi-bookmark
@@ -143,9 +142,6 @@ html[lang="ja"]
                         button.btn-light.tweet_form_icon.ms-auto.mb-4
                           i.bi.bi-three-dots
                           br
-                      .tweet.d-flex.flex-column 
-                        = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark " do
-                          = tweet.content
                       .tweet.d-flex.flex-column
                         = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark " do
                           = tweet.content
@@ -164,8 +160,7 @@ html[lang="ja"]
                           .container.mt-2.d-flex.justify-content-between
                             button.btn-light.mt-2.tweet_form_icon
                               i.bi.bi-chat
-                            button.btn-light.mt-2.retweet_icon
-                              i.bi.bi-arrow-repeat
+                            = render partial: 'retweets/retweet_button', locals: { tweet: tweet }
                             = render partial: 'favorites/favorite_buttom', locals: { tweet: tweet }
                             button.btn-light.mt-2.tweet_form_icon
                               i.bi.bi-bookmark

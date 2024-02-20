@@ -6,6 +6,16 @@
   width: auto;
 }
 
+.container.d-flex.pt-2,.tweet.pt-4, .container.form_icon, .d-flex.justify-content-between.border-bottom, .container.d-flex.flex-row.align-items-start.pt-2, .container.pt-2.d-flex.justify-content-between  {
+  border-right: solid #dee2e6;
+  border-left: solid #dee2e6;
+}
+
+.tweet_detail_form_icon.pb-2.border-top.border-bottom.d-flex.justify-content-between {
+  border-right: none;
+  border-left: none;
+}
+
 .side_menu {
   font: Segoe UI;
   font-weight: 400;
@@ -186,7 +196,7 @@ span.custom-user-id {
 }
 
 .tweet {
-  margin-left: 1rem;
+  padding-left: 1rem;
 }
 
 .tweet_image img {
@@ -200,15 +210,18 @@ span.custom-user-id {
 }
 
 .retweet_icon {
+  color: #536471;  
   background-color: #fff;
   border: none;
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  display: flex;
+  align-items: center;
 }
 
 .retweet_icon:hover {
-  color: #00ba7c;
+  color: #00BA7C;
   background-color: #e8fcf1;
   border-radius: 50%;
 }
@@ -227,6 +240,7 @@ span.custom-user-id {
 }
 
 .favorite_icon {  
+  color: #536471; 
   border: none;
   border-radius: 50%;
   width: 35px;
@@ -242,7 +256,7 @@ span.custom-user-id {
   border-radius: 50%;
 }
 
-.favorite_icon .count { 
+.count { 
   margin-left: 0.5rem;
 }
 
