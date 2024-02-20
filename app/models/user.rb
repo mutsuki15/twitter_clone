@@ -29,11 +29,11 @@ class User < ApplicationRecord
   def follow(user)
     follower.create(followed_id: user.id)
   end
-  
+
   def unfollow(user)
     follower.find_by(followed_id: user.id).destroy
   end
-  
+
   def following?(user)
     following_user.include?(user)
   end
