@@ -288,3 +288,7 @@ button.btn.btn-light.side_menu.profile_button {
   
 }
 
+.dropdown-toggle::after {
+  display: none;
+}
+

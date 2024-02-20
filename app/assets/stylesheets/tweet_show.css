@@ -101,6 +101,7 @@ a.nav-link.active {
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  
 }
 
 .tweet_form_icon:hover {
@@ -279,4 +280,8 @@ span.custom-user-id {
 
 .container.mt-2.d-flex.justify-content-between {
   padding-left: 4rem;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }

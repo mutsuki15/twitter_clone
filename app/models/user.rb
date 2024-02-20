@@ -26,6 +26,18 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
+  def follow(user)
+    follower.create(followed_id: user.id)
+  end
+
+  def unfollow(user)
+    follower.find_by(followed_id: user.id).destroy
+  end
+
+  def following?(user)
+    following_user.include?(user)
+  end
+
   has_many :tweets, dependent: :destroy
   has_many :retweets, dependent: :destroy
   has_many :comments, dependent: :destroy

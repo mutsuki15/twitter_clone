@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  resources :users
+  resources :users do
+    member do
+      get :follows, :followers
+    end
+    resource :relationships, only: %i[create destroy]
+  end
 
   devise_scope :user do
     get 'users/auth/:provider/callback', to: 'users/omniauth_callbacks#github'

@@ -1,0 +1,11 @@
+- unless current_user && current_user.id == tweet.user.id
+  button.btn.btn-light.tweet_form_icon.mb-4.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false")
+    i.bi.bi-three-dots
+  ul.dropdown-menu
+    li
+      - if current_user.following?(tweet.user)
+        = button_to user_relationships_path(tweet.user.id), method: :delete, class: "dropdown-item" do
+          | #{tweet.user.name}さんのフォローを解除
+      - else
+        = button_to user_relationships_path(tweet.user.id), method: :post, class: "dropdown-item" do
+          | #{tweet.user.name}さんをフォロー

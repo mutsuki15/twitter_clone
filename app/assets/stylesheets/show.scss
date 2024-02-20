@@ -299,3 +299,15 @@ span.custom-user-id {
 .container.mt-2.d-flex.justify-content-between {
   padding-left: 4rem;
 }
+
+.tweet_content {
+  padding-left: 4.5rem;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.container.d-flex.flex-row.align-items-start {
+  height: 25px;
+}
