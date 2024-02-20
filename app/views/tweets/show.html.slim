@@ -35,7 +35,6 @@ html[lang="ja"]
                   | &nbsp;&nbsp;ブックマーク
               .mt-3
                 = button_to user_path(@user), method: :get, class: "btn btn-light side_menu profile_button" do
-                  strong
                     i.bi.bi-person-fill
                     |  &nbsp;&nbsp;プロフィール
               .mt-3
@@ -67,8 +66,8 @@ html[lang="ja"]
                 .user.d-flex.flex-column.ms-2
                   strong = @tweet.user.name
                   span.custom-user-id= " @" + @tweet.user.custom_user_id
-                button.btn-light.tweet_form_icon.ms-auto
-                  i.bi.bi-three-dots.ms-auto
+                .follow_button.ms-auto
+                  = render partial: 'shared/follow_button', locals: { tweet: @tweet }
               .tweet.pt-4.pb-2
                 = link_to tweet_path(@tweet.id), class: "text-decoration-none text-dark" do
                   = @tweet.content

@@ -123,21 +123,23 @@ html[lang="ja"]
                         .tweet
                           strong = tweet.user.name
                           span.custom-user-id= " @" + tweet.user.custom_user_id
-                          br
-                          = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark" do
-                            = tweet.content
-                            - if tweet.image.attached?
-                              - if tweet.image.length == 1
-                                .row
-                                  .col-md-10
+                        .follow_button.ms-auto
+                          = render partial: 'shared/follow_button', locals: { tweet: tweet }
+                      .tweet_content
+                        = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark" do
+                          = tweet.content
+                          - if tweet.image.attached?
+                            - if tweet.image.length == 1
+                              .row
+                                .col-md-10
+                                  .d-flex.tweet_image.mt-2
+                                    = image_tag tweet.image.first, size: '600x400'
+                            - else
+                              .row
+                                - tweet.image.each do |image|
+                                  .col-md-5
                                     .d-flex.tweet_image.mt-2
-                                      = image_tag tweet.image.first, size: '600x400'
-                              - else
-                                .row
-                                  - tweet.image.each do |image|
-                                    .col-md-5
-                                      .d-flex.tweet_image.mt-2
-                                        = image_tag image, size: '300x200'
+                                      = image_tag image, size: '300x200'
                       .container.mt-2.d-flex.justify-content-between.icon
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-chat
@@ -160,8 +162,10 @@ html[lang="ja"]
                         .tweet
                           strong = favorite.tweet.user.name
                           span.custom-user-id= " @" + favorite.tweet.user.custom_user_id
-                          br
-                          = favorite.tweet.content
+                        .follow_button.ms-auto
+                          = render partial: 'shared/follow_button', locals: { tweet: favorite }
+                      .tweet_content
+                        = favorite.tweet.content
                           - if favorite.tweet.image.attached?
                               - if favorite.tweet.image.length == 1
                                 .row
@@ -196,20 +200,22 @@ html[lang="ja"]
                         .tweet
                           strong = retweet.tweet.user.name
                           span.custom-user-id= " @" + retweet.tweet.user.custom_user_id
-                          br
-                          = retweet.tweet.content
-                          - if retweet.tweet.image.attached?
-                              - if retweet.tweet.image.length == 1
-                                .row
-                                  .col-md-10
+                        .follow_button.ms-auto
+                          = render partial: 'shared/follow_button', locals: { tweet: retweet }
+                      .tweet_content
+                        = retweet.tweet.content
+                        - if retweet.tweet.image.attached?
+                            - if retweet.tweet.image.length == 1
+                              .row
+                                .col-md-10
+                                  .d-flex.tweet_image.mt-2
+                                    = image_tag retweet.tweet.image.first, size: '600x400'
+                            - else
+                              .row
+                                - retweet.tweet.image.each do |image|
+                                  .col-md-5
                                     .d-flex.tweet_image.mt-2
-                                      = image_tag retweet.tweet.image.first, size: '600x400'
-                              - else
-                                .row
-                                  - retweet.tweet.image.each do |image|
-                                    .col-md-5
-                                      .d-flex.tweet_image.mt-2
-                                        = image_tag image, size: '300x200'
+                                      = image_tag image, size: '300x200'
                       .container.mt-2.d-flex.justify-content-between.icon
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-chat
@@ -232,20 +238,22 @@ html[lang="ja"]
                         .tweet
                           strong = comment.user.name
                           span.custom-user-id= " @" + comment.user.custom_user_id
-                          br
-                          = comment.content
-                          - if comment.image.attached?
-                            - if comment.image.length == 1
-                              .row
-                                .col-md-12
+                        .follow_button.ms-auto
+                          = render partial: 'shared/follow_button', locals: { tweet: comment }
+                      .tweet_content
+                        = comment.content
+                        - if comment.image.attached?
+                          - if comment.image.length == 1
+                            .row
+                              .col-md-12
+                                .d-flex.tweet_image.mt-2
+                                  = image_tag comment.image.first, size: '600x400'
+                          - else
+                            .row
+                              - comment.image.each_with_index do |image, index|
+                                .col-md-6
                                   .d-flex.tweet_image.mt-2
-                                    = image_tag comment.image.first, size: '600x400'
-                            - else
-                              .row
-                                - comment.image.each_with_index do |image, index|
-                                  .col-md-6
-                                    .d-flex.tweet_image.mt-2
-                                      = image_tag image, size: '300x200'
+                                    = image_tag image, size: '300x200'
                       .container.mt-2.d-flex.justify-content-between.icon
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-chat

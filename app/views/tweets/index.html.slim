@@ -96,8 +96,8 @@ html[lang="ja"]
                         .user.d-flex.flex-row.ms-2
                           strong = tweet.user.name
                           .ms-2.custom-user-id= " @" + tweet.user.custom_user_id
-                        button.btn-light.tweet_form_icon.ms-auto.mb-4
-                          i.bi.bi-three-dots
+                        .follow_button.ms-auto
+                          = render partial: 'shared/follow_button', locals: { tweet: tweet }
                           br
                       .tweet.d-flex.flex-column
                         = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark " do
@@ -139,8 +139,8 @@ html[lang="ja"]
                         .user.d-flex.flex-row.ms-2
                           strong = tweet.user.name
                           .ms-2.custom-user-id= " @" + tweet.user.custom_user_id
-                        button.btn-light.tweet_form_icon.ms-auto.mb-4
-                          i.bi.bi-three-dots
+                        .follow_button.ms-auto
+                          = render partial: 'shared/follow_button', locals: { tweet: tweet }
                           br
                       .tweet.d-flex.flex-column
                         = link_to tweet_path(tweet.id), class: "text-decoration-none text-dark " do
