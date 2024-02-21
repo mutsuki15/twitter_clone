@@ -234,26 +234,26 @@ button.btn.btn-light.side_menu.profile_button {
   border-radius: 50%;
 }
 
-.btn-light.favorite_icon {
+.btn-light.favorite_icon, .bookmark_icon {
   --bs-btn-color: none;
   --bs-btn-bg: none;
   --bs-btn-border-color: none;
 }
 
-.btn-light.favorite_icon:hover {
+.btn-light.favorite_icon, .bookmark_icon:hover {
   --bs-btn-color: none;
   --bs-btn-bg: none;
   --bs-btn-border-color: none;
   
 }
 
-.favorite_icon {  
+.favorite_icon, .bookmark_icon {  
   color: #536471;
   border: none;
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  padding-left: 0.3rem;
+  padding-left: 0.6rem;
   display: flex;
   align-items: center;
 }
@@ -261,6 +261,12 @@ button.btn.btn-light.side_menu.profile_button {
 .favorite_icon:hover {
   color: #F81780;
   background-color: #fddaeb;
+  border-radius: 50%;
+}
+
+.bookmark_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
   border-radius: 50%;
 }
 

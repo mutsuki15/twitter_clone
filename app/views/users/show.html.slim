@@ -30,7 +30,7 @@ html[lang="ja"]
                   i.bi.bi-envelope
                   | &nbsp;&nbsp;メッセージ
               .mt-3
-                button.btn.btn-light.side_menu
+                = button_to bookmarks_tweets_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-bookmark
                   | &nbsp;&nbsp;ブックマーク
               .mt-3
@@ -145,8 +145,7 @@ html[lang="ja"]
                           i.bi.bi-chat
                         = render partial: 'retweets/retweet_button', locals: { tweet: tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: tweet }
-                        button.btn-light.mt-2.tweet_form_icon
-                          i.bi.bi-bookmark
+                        = render partial: 'bookmarks/bookmark_button', locals: { tweet: tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-upload
                       .border-bottom
@@ -183,8 +182,7 @@ html[lang="ja"]
                           i.bi.bi-chat
                         = render partial: 'retweets/retweet_button', locals: { tweet: favorite.tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: favorite.tweet }
-                        button.btn-light.mt-2.tweet_form_icon
-                          i.bi.bi-bookmark
+                        = render partial: 'bookmarks/bookmark_button', locals: { tweet: favorite.tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-upload
                       .border-bottom
@@ -221,8 +219,7 @@ html[lang="ja"]
                           i.bi.bi-chat
                         = render partial: 'retweets/retweet_button', locals: { tweet: retweet.tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: retweet.tweet }
-                        button.btn-light.mt-2.tweet_form_icon
-                          i.bi.bi-bookmark
+                        = render partial: 'bookmarks/bookmark_button', locals: { tweet: retweet.tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-upload
                       .border-bottom
@@ -259,8 +256,7 @@ html[lang="ja"]
                           i.bi.bi-chat
                         = render partial: 'retweets/retweet_button', locals: { tweet: comment.tweet }
                         = render partial: 'favorites/favorite_buttom', locals: { tweet: comment.tweet }
-                        button.btn-light.mt-2.tweet_form_icon
-                          i.bi.bi-bookmark
+                        = render partial: 'bookmarks/bookmark_button', locals: { tweet: comment.tweet }
                         button.btn-light.mt-2.tweet_form_icon
                           i.bi.bi-upload
                       .border-bottom

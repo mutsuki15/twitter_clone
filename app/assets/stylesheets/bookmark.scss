@@ -115,7 +115,7 @@ a.nav-link.active {
 }
 
 .tweet {
-  margin-left: 4.5rem;
+  padding-left: 4.5rem;
   
 }
 
@@ -297,4 +297,19 @@ button.btn.btn-light.side_menu.profile_button {
 .dropdown-toggle::after {
   display: none;
 }
+
+.col-8.main_before_login  {
+  border-right: solid #dee2e6;
+  border-left: solid #dee2e6;
+  height: 100%;
+}
+
+h2.fw-bold.text-center.pt-4.border-start.border-end {
+  height: 100%;
+}
+
+
+
+
+
 

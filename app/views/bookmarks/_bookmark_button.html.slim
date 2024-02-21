@@ -1,0 +1,8 @@
+- if tweet.bookmarked_by?(current_user)
+  .mt-2.d-flex.align-items-center
+    = button_to tweet_bookmarks_path(tweet), class: "btn btn-light bookmark_icon", method: :delete do
+      i.bi.bi-bookmark-fill aria-hidden="true" style="color: #1da1f2"
+- else
+  .mt-2.d-flex.align-items-center
+    = button_to tweet_bookmarks_path(tweet), class: "btn btn-light bookmark_icon", method: :post do
+      i.bi.bi-bookmark aria-hidden="true"
