@@ -1,0 +1,111 @@
+doctype html
+html[lang="ja"]
+  head
+    meta[charset="utf-8"]
+    title
+      | Twitterクローン
+    link href="/assets/bookmark.css" rel="stylesheet"
+
+  body 
+    = render partial: 'shared/header'    
+    .border-top.mt-3
+      - if user_signed_in?
+        .container
+          .row
+            .col-2
+              .mt-3
+                = button_to root_path, method: :get, class: "btn btn-light side_menu profile_button" do
+                  i.bi.bi-house-door
+                  | &nbsp;&nbsp;ホーム
+              .mt-3
+                button.btn.btn-light.side_menu
+                  i.bi.bi-hash
+                  | &nbsp;&nbsp;話題を検索
+              .mt-3
+                button.btn.btn-light.side_menu
+                  i.bi.bi-bell
+                  | &nbsp;&nbsp;通知
+              .mt-3
+                button.btn.btn-light.side_menu
+                  i.bi.bi-envelope
+                  | &nbsp;&nbsp;メッセージ
+              .mt-3
+                = button_to bookmarks_tweets_path, method: :get, class: "btn btn-light side_menu profile_button" do
+                  strong
+                    i.bi.bi-bookmark-fill
+                    | &nbsp;&nbsp;ブックマーク
+              .mt-3
+                = button_to user_path(@user), method: :get, class: "btn btn-light side_menu profile_button" do
+                  i.bi.bi-person
+                  |  &nbsp;&nbsp;プロフィール
+              .mt-3
+                button.btn.btn-light.side_menu
+                  i.bi.bi-three-dots
+                  | &nbsp;&nbsp;もっと見る
+              .mt-3
+                button.btn.btn-primary.col-11.tweet_button
+                  | ツイートする
+              .side_user_icon
+                .d-flex.align-items-center
+                  - if current_user.avatar.attached?
+                    = image_tag current_user.avatar, size: '50x50'
+                  - else
+                    = image_tag 'default_user.PNG', size: '50x50'
+                  .d-flex.flex-column.side_user_name
+                    strong = current_user.name
+                    = "@" + current_user.custom_user_id
+
+            .col-8.main_before_login
+              - if @bookmarks.present?
+                - @bookmarks.each do |bookmark|
+                  .container.d-flex.pt-2
+                    .avatar
+                      - if bookmark.tweet.user.avatar.attached? 
+                        = link_to user_path(bookmark.tweet.user.id) do
+                          .avatar = image_tag bookmark.tweet.user.avatar, size: '50x50'
+                      - else
+                        = link_to user_path(bookmark.tweet.user.id) do
+                          .avatar = image_tag 'default_user.PNG', size: '50x50'
+                    .user.d-flex.flex-row.ms-2
+                      strong = bookmark.tweet.user.name
+                      .ms-2.custom-user-id= " @" + bookmark.tweet.user.custom_user_id
+                    .follow_button.ms-auto
+                      = render partial: 'shared/follow_button', locals: { tweet: bookmark }
+                      br
+                  .tweet.d-flex.flex-column
+                    = link_to tweet_path(bookmark.tweet.id), class: "text-decoration-none text-dark " do
+                      = bookmark.tweet.content
+                      - if bookmark.tweet.image.attached?
+                          - if bookmark.tweet.image.length == 1
+                            .row
+                              .col-md-10
+                                .d-flex.tweet_image.mt-2
+                                  = image_tag bookmark.tweet.image.first, size: '600x400'
+                          - else
+                            .row
+                              - tweet.image.each do |image|
+                                .col-md-5
+                                  .d-flex.tweet_image.mt-2
+                                    = image_tag image, size: '300x200'
+                      .container.mt-2.d-flex.justify-content-between
+                        button.btn-light.mt-2.tweet_form_icon
+                          i.bi.bi-chat
+                        = render partial: 'retweets/retweet_button', locals: { tweet: bookmark.tweet }
+                        = render partial: 'favorites/favorite_buttom', locals: { tweet: bookmark.tweet }
+                        = render partial: 'bookmarks/bookmark_button', locals: { tweet: bookmark.tweet }
+                        button.btn-light.mt-2.tweet_form_icon
+                          i.bi.bi-upload
+                  .border-bottom
+              - else
+                  h2.fw-bold.text-center.pt-4
+                      | ブックマークしているツイートがありません。
+    script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"
+    script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+
+
+
+
+    
+    

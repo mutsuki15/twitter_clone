@@ -37,6 +37,13 @@ class TweetsController < ApplicationController
     @comments = @user.comments.order(created_at: 'DESC')
   end
 
+  def bookmarks
+    return if current_user.blank?
+
+    @user = current_user
+    @bookmarks = @user.bookmarks.order(created_at: 'DESC')
+  end
+
   private
 
   def tweet_params

@@ -20,9 +20,13 @@ Rails.application.routes.draw do
 
   root to: 'tweets#index'
   resources :tweets do
+    collection do
+      get 'bookmarks', to: 'tweets#bookmarks'
+    end
     resources :comments, only: [:create]
     resource :favorites, only: %i[create destroy]
     resource :retweets, only: %i[create destroy]
+    resource :bookmarks, only: %i[create destroy]
   end
 
   post '/tweets', to: 'tweets#create'
