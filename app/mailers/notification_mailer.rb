@@ -13,8 +13,9 @@ class NotificationMailer < ApplicationMailer
     mail(to: @user.email, subject: 'いいね通知')
   end
 
-  def follow_notification(user)
+  def follow_notification(user, follower)
     @user = user
+    @follower = follower
     mail(to: @user.email, subject: 'フォロー通知')
   end
 
