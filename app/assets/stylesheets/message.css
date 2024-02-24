@@ -1,0 +1,356 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+.date_of_birth {
+  display: inline-block;
+  width: auto;
+}
+
+.tabs {
+  border-right: solid #dee2e6;
+  border-left: solid #dee2e6;
+}
+
+.side_menu {
+  font: Segoe UI;
+  font-weight: 400;
+  font-size: 20px;
+  color: #0f1419;
+}
+
+button.btn.btn-light.side_menu {
+  background-color: #fff;
+  border: #fff;
+  border-radius:30px;
+  
+}
+
+button.btn.btn-light.side_menu:hover {
+  background-color: lightgray;
+  border-radius:30px;
+}
+
+.tweet_button {
+  background-color:#1da1f2;
+  border: #1da1f2;
+  border-radius:30px;
+}
+
+.tweet_button:hover {
+  border: #1da1f2;
+  background-color: #1574ae;
+  border-radius:30px;
+}
+
+.main_before_login {
+  height:100vh;
+}
+
+.main_before_login_button {
+  border-radius:30px;
+
+}
+
+.col-8.main_before_login {
+  padding: 0;
+  
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: 0;
+
+}
+
+.nav-tabs .nav-link {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.nav {
+  --bs-nav-link-color: gray;
+  --bs-nav-link-hover-color: gray;
+
+  
+}
+
+.nav-link:hover {
+  background-color: #DDDDDD;
+
+}
+
+.nav:hover {
+  --bs-nav-link-color: gray;
+}
+
+.nav-tabs .nav-link.active {
+  color: black;
+  font-weight: bold;
+  border: #0f1419;
+   
+  
+}
+
+a.nav-link.active {
+  text-decoration:underline 3px solid #1da1f2;
+  text-underline-offset: 0.8rem;
+}
+
+.tweet_form{
+  width: 90%;
+
+}
+
+.tweet_form_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 6px 12px;
+}
+
+.tweet_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+}
+
+.tweet {
+  margin-left: 4.5rem;
+  
+}
+
+.container.d-flex.flex-row.align-items-start.border-bottom {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+
+.pagination .page-link {
+  color: #1da1f2;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #1da1f2;
+  border: #1da1f2;
+  color: #fff;
+}
+
+
+.user_icon img{
+  border-radius: 50%;
+}
+
+.side_user_icon img{
+  border-radius: 50%;
+}
+
+.side_user_name {
+  padding-left: 0.5rem;
+
+}
+
+.col-2.border-end  {
+  position: relative;
+  padding-bottom: 5rem;
+}
+
+.side_user_icon {
+  position: absolute;
+  bottom: 0;
+}
+
+button.btn.btn-light.side_menu.profile_button {
+  color: black;
+}
+
+.custom-user-id {
+  color: #536471;
+}
+
+.tweet_image img {
+  object-fit: cover;
+  border-radius: 10%;
+  margin-left: 3rem;
+}
+
+.avatar img {
+  border-radius: 50%;
+}
+
+.picture_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+  
+  
+}
+
+.picture_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+
+.tweet_form_icon {
+  color: #536471;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+  
+  
+}
+
+.tweet_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+
+.retweet_icon {
+  color: #536471;  
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.retweet_icon:hover {
+  color: #00BA7C;
+  background-color: #e8fcf1;
+  border-radius: 50%;
+}
+
+.btn-light.favorite_icon, .bookmark_icon {
+  --bs-btn-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+}
+
+.btn-light.favorite_icon, .bookmark_icon:hover {
+  --bs-btn-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  
+}
+
+.favorite_icon, .bookmark_icon {  
+  color: #536471;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-left: 0.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.favorite_icon:hover {
+  color: #F81780;
+  background-color: #fddaeb;
+  border-radius: 50%;
+}
+
+.bookmark_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+}
+
+.count { 
+  color: #536471;
+  margin-left: 0.5rem;
+}
+
+
+.comment_form_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+}
+
+.comment_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+h2.fw-bold.text-center {
+  padding-top: 12rem;
+  padding-left: 5rem;
+}
+
+.room-name a{
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  
+}
+
+.room-name {
+  margin-left: 0.5rem;
+}
+
+.col-4.main_before_login.border-end{
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.d-flex.align-items-center{
+  padding-left: 0.5rem;
+}
+
+.message_content {
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.current_user_message_content {
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #1da1f2;
+  color: #fff;
+}
+
+
+.message_date {
+  font-size: 13px;
+  color: #536471;
+}
+
+.message_form {
+  position: fixed;
+  bottom: 0;
+  width: 45%;
+}
+
+.selected_room {
+  background-color: #f0f0f0;
+  border-right:3px solid #1da1f2;
+}

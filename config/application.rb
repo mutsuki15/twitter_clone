@@ -30,5 +30,6 @@ module Myapp
     end
     config.action_view.default_form_builder = 'ApplicationFormBuilder'
     config.action_controller.forgery_protection_origin_check = false
+    config.time_zone = 'Tokyo'
   end
 end

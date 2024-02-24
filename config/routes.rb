@@ -31,5 +31,11 @@ Rails.application.routes.draw do
 
   post '/tweets', to: 'tweets#create'
 
+  resources :rooms
+
+  resources :rooms do
+    resources :messages
+  end
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

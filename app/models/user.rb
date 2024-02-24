@@ -48,6 +48,9 @@ class User < ApplicationRecord
   has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy, inverse_of: :followed
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users
+  has_many :messages, dependent: :destroy
   has_one_attached :avatar
   has_one_attached :header
 end

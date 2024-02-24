@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_20_140943) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_21_143259) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_20_140943) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -90,6 +100,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_20_140943) do
     t.index ["comment_id"], name: "index_retweets_on_comment_id"
     t.index ["tweet_id"], name: "index_retweets_on_tweet_id"
     t.index ["user_id"], name: "index_retweets_on_user_id"
+  end
+
+  create_table "room_users", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -125,7 +149,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_20_140943) do
     t.date "date_of_birth", default: "2000-01-01", null: false
     t.string "provider", default: "", null: false
     t.string "uid", default: "", null: false
-    t.string "custom_user_id", default: "WzQWAmyT08A", null: false
+    t.string "custom_user_id", default: "0d8n1mEzO6I", null: false
     t.string "profile", default: "", null: false
     t.string "location", default: "", null: false
     t.string "web_site", default: "", null: false
@@ -146,8 +170,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_20_140943) do
   add_foreign_key "favorites", "comments"
   add_foreign_key "favorites", "tweets"
   add_foreign_key "favorites", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "retweets", "comments"
   add_foreign_key "retweets", "tweets"
   add_foreign_key "retweets", "users"
+  add_foreign_key "room_users", "rooms"
+  add_foreign_key "room_users", "users"
   add_foreign_key "tweets", "users"
 end

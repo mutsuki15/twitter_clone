@@ -26,7 +26,7 @@ html[lang="ja"]
                   i.bi.bi-bell
                   | &nbsp;&nbsp;通知
               .mt-3
-                button.btn.btn-light.side_menu
+                = button_to rooms_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-envelope
                   | &nbsp;&nbsp;メッセージ
               .mt-3
