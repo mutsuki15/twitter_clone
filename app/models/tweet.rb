@@ -10,6 +10,8 @@ class Tweet < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many_attached :image
 
+  has_one :notification, as: :subject, dependent: :destroy
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end

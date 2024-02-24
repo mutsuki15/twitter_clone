@@ -37,5 +37,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :notifications, only: [:index]
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

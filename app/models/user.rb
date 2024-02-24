@@ -53,4 +53,6 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one_attached :avatar
   has_one_attached :header
+
+  has_many :notifications, dependent: :destroy
 end

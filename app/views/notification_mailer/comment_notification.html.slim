@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+  body
+    h1 返信通知メール
+    p #{@comment.user.name}さんがあなたのツイートに返信しました
+    p 返信のコメントは下記です
+    p #{@comment.content}
