@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_21_143259) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_23_043541) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_21_143259) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "subject_type"
+    t.bigint "subject_id"
+    t.bigint "user_id"
+    t.integer "action_type", null: false
+    t.boolean "checked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_type", "subject_id"], name: "index_notifications_on_subject"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -149,7 +161,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_21_143259) do
     t.date "date_of_birth", default: "2000-01-01", null: false
     t.string "provider", default: "", null: false
     t.string "uid", default: "", null: false
-    t.string "custom_user_id", default: "0d8n1mEzO6I", null: false
+    t.string "custom_user_id", default: "1cJqa-Q23Tc", null: false
     t.string "profile", default: "", null: false
     t.string "location", default: "", null: false
     t.string "web_site", default: "", null: false
@@ -172,6 +184,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_21_143259) do
   add_foreign_key "favorites", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "retweets", "comments"
   add_foreign_key "retweets", "tweets"
   add_foreign_key "retweets", "users"

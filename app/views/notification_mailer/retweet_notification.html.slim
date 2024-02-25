@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+  body
+    h1 リツイート通知メール
+    p #{@retweet.user.name}さんがあなたのツイートをリツイートしました
+    p 対象のツイートは下記です
+    p #{@retweet.tweet.content}

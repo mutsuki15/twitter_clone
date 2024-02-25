@@ -1,19 +1,14 @@
-@import "bootstrap/scss/bootstrap";
-@import "bootstrap-icons/font/bootstrap-icons";
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
 
 .date_of_birth {
   display: inline-block;
   width: auto;
 }
 
-.container.d-flex.pt-2,.tweet.pb-2, .container.form_icon, .d-flex.justify-content-between.border-bottom, .container.d-flex.flex-row.align-items-start.pt-2, .container.pt-2.d-flex.justify-content-between  {
+.tabs {
   border-right: solid #dee2e6;
   border-left: solid #dee2e6;
-}
-
-.tweet_detail_form_icon.pb-2.border-top.border-bottom.d-flex.justify-content-between {
-  border-right: none;
-  border-left: none;
 }
 
 .side_menu {
@@ -26,40 +21,44 @@
 button.btn.btn-light.side_menu {
   background-color: #fff;
   border: #fff;
-  border-radius: 30px;
+  border-radius:30px;
+  
 }
 
 button.btn.btn-light.side_menu:hover {
   background-color: lightgray;
-  border-radius: 30px;
+  border-radius:30px;
 }
 
 .tweet_button {
-  background-color: #1da1f2;
+  background-color:#1da1f2;
   border: #1da1f2;
-  border-radius: 30px;
+  border-radius:30px;
 }
 
 .tweet_button:hover {
   border: #1da1f2;
   background-color: #1574ae;
-  border-radius: 30px;
+  border-radius:30px;
 }
 
 .main_before_login {
-  height: 100vh;
+  height:100vh;
 }
 
 .main_before_login_button {
-  border-radius: 30px;
+  border-radius:30px;
+
 }
 
 .col-8.main_before_login {
   padding: 0;
+  
 }
 
 .nav-tabs {
   --bs-nav-tabs-border-width: 0;
+
 }
 
 .nav-tabs .nav-link {
@@ -70,10 +69,13 @@ button.btn.btn-light.side_menu:hover {
 .nav {
   --bs-nav-link-color: gray;
   --bs-nav-link-hover-color: gray;
+
+  
 }
 
 .nav-link:hover {
-  background-color: #dddddd;
+  background-color: #DDDDDD;
+
 }
 
 .nav:hover {
@@ -84,35 +86,44 @@ button.btn.btn-light.side_menu:hover {
   color: black;
   font-weight: bold;
   border: #0f1419;
+   
+  
 }
 
 a.nav-link.active {
-  text-decoration: underline 3px solid #1da1f2;
+  text-decoration:underline 3px solid #1da1f2;
   text-underline-offset: 0.8rem;
 }
 
-.tweet_form {
+.tweet_form{
   width: 90%;
+
 }
 
 .tweet_form_icon {
+  color: #1da1f2;
   background-color: #fff;
   border: none;
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  
+  padding: 6px 12px;
 }
 
 .tweet_form_icon:hover {
   color: #1da1f2;
-  background-color: #d7eeff;
+  background-color: #D7EEFF;
   border-radius: 50%;
 }
 
-.user_icon img {
-  border-radius: 50%;
+.tweet {
+  margin-left: 4.5rem;
+  
 }
+
+.container.d-flex.flex-row.align-items-start.border-bottom {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 
 .pagination .page-link {
   color: #1da1f2;
@@ -124,12 +135,23 @@ a.nav-link.active {
   color: #fff;
 }
 
-.side_user_icon img {
+
+.user_icon img{
+  border-radius: 50%;
+}
+
+.side_user_icon img{
   border-radius: 50%;
 }
 
 .side_user_name {
   padding-left: 0.5rem;
+
+}
+
+.col-2.border-end  {
+  position: relative;
+  padding-bottom: 5rem;
 }
 
 .side_user_icon {
@@ -141,63 +163,8 @@ button.btn.btn-light.side_menu.profile_button {
   color: black;
 }
 
-.header img {
-  height: 230px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.edit_profile_button {
-  color: #000;
-  background-color: #fff;
-  border-radius: 50px;
-  height: 40px;
-}
-
-.edit_profile_button:hover {
-  color: #000;
-  background-color: rgb(229, 229, 229);
-  border-radius: 50px;
-}
-
-.btn-outline-secondary {
-  --bs-btn-border-color: #dae5e9;
-  --bs-btn-hover-border-color: #dae5e9;
-}
-
-.user_name {
-  font: Segoe UI;
-  font-size: 20px;
-  font-weight: 800;
-  color: #0f1419;
-}
-
-.custom_user_id {
+.custom-user-id {
   color: #536471;
-}
-
-.container.d-flex.flex-row.profile_detail {
-  color: #536471;
-}
-
-.web_site {
-  margin-left: 1rem;
-}
-
-.date_of_birth {
-  margin-left: 1rem;
-}
-
-.follower {
-  margin-left: 2rem;
-}
-
-span.custom-user-id {
-  color: #536471;
-}
-
-.tweet {
-  padding-left: 1rem;
 }
 
 .tweet_image img {
@@ -208,6 +175,46 @@ span.custom-user-id {
 
 .avatar img {
   border-radius: 50%;
+}
+
+.picture_icon {
+  color: #1da1f2;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+  
+  
+}
+
+.picture_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
+}
+
+.tweet_form_icon {
+  color: #536471;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding-top: 0.25rem;
+  padding-left: 0.6rem;
+  
+  
+}
+
+.tweet_form_icon:hover {
+  color: #1da1f2;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  
 }
 
 .retweet_icon {
@@ -264,8 +271,10 @@ span.custom-user-id {
 }
 
 .count { 
+  color: #536471;
   margin-left: 0.5rem;
 }
+
 
 .comment_form_icon {
   color: #1da1f2;
@@ -280,14 +289,25 @@ span.custom-user-id {
 
 .comment_form_icon:hover {
   color: #1da1f2;
-  background-color: #d7eeff;
+  background-color: #D7EEFF;
   border-radius: 50%;
-}
-
-.container.mt-2.d-flex.justify-content-between {
-  padding-left: 4rem;
+  
 }
 
 .dropdown-toggle::after {
   display: none;
+}
+
+.favorite_detail {
+  padding-left: 3rem;
+}
+
+.user-link {
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+}
+
+.tweet_content {
+  color: #536471; 
 }

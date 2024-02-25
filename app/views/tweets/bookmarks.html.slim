@@ -22,11 +22,11 @@ html[lang="ja"]
                   i.bi.bi-hash
                   | &nbsp;&nbsp;話題を検索
               .mt-3
-                button.btn.btn-light.side_menu
+                = button_to notifications_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-bell
                   | &nbsp;&nbsp;通知
               .mt-3
-                button.btn.btn-light.side_menu
+                = button_to rooms_path, method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-envelope
                   | &nbsp;&nbsp;メッセージ
               .mt-3
@@ -37,7 +37,7 @@ html[lang="ja"]
               .mt-3
                 = button_to user_path(@user), method: :get, class: "btn btn-light side_menu profile_button" do
                   i.bi.bi-person
-                  |  &nbsp;&nbsp;プロフィール
+                  | &nbsp;&nbsp;プロフィール
               .mt-3
                 button.btn.btn-light.side_menu
                   i.bi.bi-three-dots

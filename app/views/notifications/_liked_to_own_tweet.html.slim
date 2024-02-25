@@ -1,0 +1,20 @@
+= link_to transition_path(notification) do
+  div
+    .container.d-flex.pt-2
+      i.bi.bi-heart-fill style="color: #F81780; font-size: 30px;"
+      .d-flex
+        .user_icon.ms-2
+          - if notification.subject.user.avatar.attached? 
+            = link_to user_path(notification.subject.user.id) do
+              .avatar = image_tag notification.subject.user.avatar, size: '40x40'
+          - else
+            = link_to user_path(@tweet.user.id) do
+              .avatar = image_tag 'default_user.PNG', size: '40x40'
+    .favorite_detail
+      = link_to notification.subject.user.name, user_path(notification.subject.user), class: "user-link"
+      | さんがあなたの
+      = link_to 'ツイート', tweet_path(notification.subject.tweet), class: "user-link"
+      | をいいねしました
+      .tweet_content.mt-2
+        = notification.subject.tweet.content
+      
