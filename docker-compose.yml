@@ -20,6 +20,13 @@ services:
     tty: true
     depends_on:
       - db
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
+  selenium_chrome:
+    image: seleniarm/standalone-chromium
+    ports:
+      - "4444:4444"
   js:
     image: rails_template:latest
     command: yarn build --watch

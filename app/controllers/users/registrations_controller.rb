@@ -1,9 +1,14 @@
-# frozen_string_literal: true
-
 module Users
   class RegistrationsController < Devise::RegistrationsController
+    def create
+      super do |resource|
+        if resource.errors.any?
+          flash[:alert] = resource.errors.full_messages.join(', ')
+        end
+      end
+    end
     protected
-
+    
     def build_resource(hash = {})
       hash[:uid] = User.create_unique_string
       super
