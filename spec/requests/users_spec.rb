@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
-  describe "サインアップ" do
+RSpec.describe 'Users', type: :request do
+  describe 'サインアップ' do
     let(:user) { create(:user) }
     let(:user_params) { attributes_for(:user) }
     let(:invalid_user_params) { attributes_for(:user, name: '') }

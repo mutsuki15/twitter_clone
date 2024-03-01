@@ -7,7 +7,7 @@ RSpec.describe 'Users', type: :system do
     context '正常系' do
       let(:user) { build(:user) }
 
-      scenario 'アカウント作成' do
+      it 'アカウント作成' do
         expect do
           visit new_user_registration_path
           fill_in 'user_name', with: user.name
@@ -34,7 +34,7 @@ RSpec.describe 'Users', type: :system do
         user2.confirm
       end
 
-      scenario '登録済みのメールアドレスでのアカウント作成' do
+      it '登録済みのメールアドレスでのアカウント作成' do
         expect do
           visit new_user_registration_path
           fill_in 'user_name', with: user.name
@@ -62,7 +62,7 @@ RSpec.describe 'Users', type: :system do
     end
 
     context '正常系' do
-      scenario 'ログイン' do
+      it 'ログイン' do
         visit new_user_session_path
         fill_in 'user_email', with: user.email
         fill_in 'user_password', with: user.password
@@ -75,13 +75,13 @@ RSpec.describe 'Users', type: :system do
     end
 
     context '異常系' do
-      scenario '空欄でのログイン' do
+      it '空欄でのログイン' do
         visit new_user_session_path
         fill_in 'user_email', with: ''
         fill_in 'user_password', with: ''
         click_button 'ログイン'
 
-        expect(page).to have_content "入力内容に不備があります。"
+        expect(page).to have_content '入力内容に不備があります。'
         expect(page).to have_content 'Xにログイン'
       end
     end

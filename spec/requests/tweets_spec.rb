@@ -21,7 +21,7 @@ RSpec.describe 'Tweets', type: :request do
 
       it 'tweets_pathにリダイレクトされる' do
         post tweets_path, params: { tweet: tweet_params }
-        expect(response).to redirect_to tweets_path 
+        expect(response).to redirect_to tweets_path
       end
     end
 

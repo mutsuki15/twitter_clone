@@ -28,10 +28,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(id: params[:id])
-    unless @user
-      flash[:alert] = 'ユーザーが見つかりませんでした。'
-      redirect_to root_path
-    end
+    return if @user
+
+    flash[:alert] = 'ユーザーが見つかりませんでした。'
+    redirect_to root_path
   end
 
   def user_params

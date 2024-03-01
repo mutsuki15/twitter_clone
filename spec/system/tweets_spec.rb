@@ -12,7 +12,7 @@ RSpec.describe 'Tweets', type: :system do
     end
 
     context '正常系' do
-      scenario 'ツイート' do
+      it 'ツイート' do
         content = 'test'
 
         expect do
@@ -26,7 +26,7 @@ RSpec.describe 'Tweets', type: :system do
     end
 
     context '異常系' do
-      scenario '空欄での投稿' do
+      it '空欄での投稿' do
         expect do
           visit root_path
           fill_in 'tweet[content]', with: ''

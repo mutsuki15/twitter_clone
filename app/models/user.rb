@@ -63,5 +63,4 @@ class User < ApplicationRecord
   def set_custom_user_id
     self.custom_user_id = SecureRandom.urlsafe_base64(8)
   end
-  
 end
