@@ -2,6 +2,12 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
+    def create
+      super do |resource|
+        flash[:alert] = resource.errors.full_messages.join(', ') if resource.errors.any?
+      end
+    end
+
     protected
 
     def build_resource(hash = {})

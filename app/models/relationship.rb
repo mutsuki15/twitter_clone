@@ -14,5 +14,4 @@ class Relationship < ApplicationRecord
     Notification.create(subject: self, user: followed, action_type: :followed_me)
     NotificationMailer.follow_notification(followed, follower).deliver_now
   end
-
 end

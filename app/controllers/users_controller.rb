@@ -27,7 +27,11 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    return if @user
+
+    flash[:alert] = 'ユーザーが見つかりませんでした。'
+    redirect_to root_path
   end
 
   def user_params

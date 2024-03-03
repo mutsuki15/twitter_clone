@@ -7,9 +7,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: %i[github]
 
+  validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :phone_number, presence: true
   validates :uid, uniqueness: { scope: :provider }
-  validates :custom_user_id, presence: true, format: { with: /\A\w+\z/ }
+
+  before_create :set_custom_user_id
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
@@ -53,6 +56,11 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one_attached :avatar
   has_one_attached :header
-
   has_many :notifications, dependent: :destroy
+
+  private
+
+  def set_custom_user_id
+    self.custom_user_id = SecureRandom.urlsafe_base64(8)
+  end
 end
