@@ -183,8 +183,7 @@ html[lang="ja"]
               .mt-2.fw-lighter
                 | 今すぐ登録して、タイムラインをカスタマイズしましょう。
               .mt-2
-                button.btn.btn-outline-dark.main_before_login_button
-                  | アカウントを作成
+                = link_to "アカウントを作成", new_user_registration_path, class: "btn btn-outline-dark main_before_login_button"
 
 
     script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

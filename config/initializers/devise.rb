@@ -271,8 +271,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, Rails.application.credentials.github[:client_id], Rails.application.credentials.github[:client_secret], redirect_uri: 'https://rocky-castle-57617-142cbdb14382.herokuapp.com/users/auth/github/callback'
-  OmniAuth.config.full_host = 'https://rocky-castle-57617-142cbdb14382.herokuapp.com' if Rails.env.production?
+  config.omniauth :github, Rails.application.credentials.github[:client_id], Rails.application.credentials.github[:client_secret]
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

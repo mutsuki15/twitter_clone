@@ -1,6 +1,0 @@
-github:
- client_id: 8d2c026e0e4ea6b94d7d
- client_secret: 0c1ff65ee8020ba91f0789d16253a5c40c17d1e3
-
-production:
-  secret_key_base: 9b5f51e41cf979514beb2dbc6a5226f72ca8c82aa2c6fb86f57299e752ae23b1eacde6be58ede62c1a037cd1cde467ab11960a4fa5f7eb080a725a841b334119
